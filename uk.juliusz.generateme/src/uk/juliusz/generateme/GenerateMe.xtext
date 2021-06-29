@@ -1,0 +1,9 @@
+grammar uk.juliusz.generateme.GenerateMe with org.eclipse.xtext.common.Terminals
+
+generate generateMe "http://www.juliusz.uk/generateme/GenerateMe"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
