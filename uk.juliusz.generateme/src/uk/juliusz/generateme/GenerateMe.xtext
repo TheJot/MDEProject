@@ -2,8 +2,63 @@ grammar uk.juliusz.generateme.GenerateMe with org.eclipse.xtext.common.Terminals
 
 generate generateMe "http://www.juliusz.uk/generateme/GenerateMe"
 
-Model:
-	greetings+=Greeting*;
+
+
+
+GenerateMeProgram:
+	'BusinessName' businessName=STRING
+	config = Config
+	homePage = HomePage
+	pages += Pages*
+;
+
+Config:
+	'Sender' sender=STRING
+	'Author' author=STRING
+;
+
+
+HomePage:
+	'HomePage{'
+		'Introduction'Introduction=STRING
+	'}'
+;
+
+Pages:
+	ContentPage |
+	GalleryPage |
+	ContactUsPage
 	
-Greeting:
-	'Hello' name=ID '!';
+;
+
+
+ContentPage:
+	
+	'ContentPage' name=ID '{'
+		'PageHeader' content=STRING
+	'}'
+;
+
+ContactUsPage:
+	'ContactUsPage' name=ID '{'
+		'PageHeader' content=STRING
+	'}'
+;
+
+
+GalleryPage:
+	'GalleryPage' name=ID '{'
+		photos+=Photo		
+	'}'
+;
+
+Photo:	
+	'Photo' photoTitle=STRING '{'
+		'PhotoDescription' description=STRING
+		'PhotoFileName' fileName=STRING
+	'}'
+;
+
+
+
+
