@@ -165,20 +165,9 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getGenerateMeProgram_BusinessName()
-  {
-    return (EAttribute)generateMeProgramEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getGenerateMeProgram_Config()
   {
-    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(1);
+    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -189,7 +178,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
   @Override
   public EReference getGenerateMeProgram_HomePage()
   {
-    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(2);
+    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -200,7 +189,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
   @Override
   public EReference getGenerateMeProgram_Pages()
   {
-    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(3);
+    return (EReference)generateMeProgramEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -220,7 +209,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getConfig_Sender()
+  public EAttribute getConfig_BusinessName()
   {
     return (EAttribute)configEClass.getEStructuralFeatures().get(0);
   }
@@ -231,9 +220,20 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getConfig_Author()
+  public EAttribute getConfig_Sender()
   {
     return (EAttribute)configEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getConfig_Author()
+  {
+    return (EAttribute)configEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -422,12 +422,12 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
 
     // Create classes and their features
     generateMeProgramEClass = createEClass(GENERATE_ME_PROGRAM);
-    createEAttribute(generateMeProgramEClass, GENERATE_ME_PROGRAM__BUSINESS_NAME);
     createEReference(generateMeProgramEClass, GENERATE_ME_PROGRAM__CONFIG);
     createEReference(generateMeProgramEClass, GENERATE_ME_PROGRAM__HOME_PAGE);
     createEReference(generateMeProgramEClass, GENERATE_ME_PROGRAM__PAGES);
 
     configEClass = createEClass(CONFIG);
+    createEAttribute(configEClass, CONFIG__BUSINESS_NAME);
     createEAttribute(configEClass, CONFIG__SENDER);
     createEAttribute(configEClass, CONFIG__AUTHOR);
 
@@ -487,12 +487,12 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
 
     // Initialize classes and features; add operations and parameters
     initEClass(generateMeProgramEClass, GenerateMeProgram.class, "GenerateMeProgram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGenerateMeProgram_BusinessName(), ecorePackage.getEString(), "businessName", null, 0, 1, GenerateMeProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGenerateMeProgram_Config(), this.getConfig(), null, "config", null, 0, 1, GenerateMeProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGenerateMeProgram_HomePage(), this.getHomePage(), null, "homePage", null, 0, 1, GenerateMeProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGenerateMeProgram_Pages(), this.getPages(), null, "pages", null, 0, -1, GenerateMeProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(configEClass, Config.class, "Config", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConfig_BusinessName(), ecorePackage.getEString(), "businessName", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConfig_Sender(), ecorePackage.getEString(), "sender", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConfig_Author(), ecorePackage.getEString(), "author", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

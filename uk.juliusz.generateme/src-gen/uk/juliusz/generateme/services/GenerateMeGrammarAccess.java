@@ -25,24 +25,60 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	public class GenerateMeProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.GenerateMeProgram");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBusinessNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cBusinessNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cBusinessNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cBusinessNameAssignment_1.eContents().get(0);
-		private final Assignment cConfigAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConfigConfigParserRuleCall_2_0 = (RuleCall)cConfigAssignment_2.eContents().get(0);
-		private final Assignment cHomePageAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cHomePageHomePageParserRuleCall_3_0 = (RuleCall)cHomePageAssignment_3.eContents().get(0);
-		private final Assignment cPagesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPagesPagesParserRuleCall_4_0 = (RuleCall)cPagesAssignment_4.eContents().get(0);
+		private final Assignment cConfigAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConfigConfigParserRuleCall_0_0 = (RuleCall)cConfigAssignment_0.eContents().get(0);
+		private final Assignment cHomePageAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cHomePageHomePageParserRuleCall_1_0 = (RuleCall)cHomePageAssignment_1.eContents().get(0);
+		private final Assignment cPagesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cPagesPagesParserRuleCall_2_0 = (RuleCall)cPagesAssignment_2.eContents().get(0);
 		
 		//GenerateMeProgram:
-		//	'BusinessName' businessName=STRING
 		//	config=Config
 		//	homePage=HomePage
 		//	pages+=Pages*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BusinessName' businessName=STRING config=Config homePage=HomePage pages+=Pages*
+		//config=Config homePage=HomePage pages+=Pages*
+		public Group getGroup() { return cGroup; }
+		
+		//config=Config
+		public Assignment getConfigAssignment_0() { return cConfigAssignment_0; }
+		
+		//Config
+		public RuleCall getConfigConfigParserRuleCall_0_0() { return cConfigConfigParserRuleCall_0_0; }
+		
+		//homePage=HomePage
+		public Assignment getHomePageAssignment_1() { return cHomePageAssignment_1; }
+		
+		//HomePage
+		public RuleCall getHomePageHomePageParserRuleCall_1_0() { return cHomePageHomePageParserRuleCall_1_0; }
+		
+		//pages+=Pages*
+		public Assignment getPagesAssignment_2() { return cPagesAssignment_2; }
+		
+		//Pages
+		public RuleCall getPagesPagesParserRuleCall_2_0() { return cPagesPagesParserRuleCall_2_0; }
+	}
+	public class ConfigElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Config");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cBusinessNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBusinessNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBusinessNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cBusinessNameAssignment_1.eContents().get(0);
+		private final Keyword cSenderKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSenderAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSenderSTRINGTerminalRuleCall_3_0 = (RuleCall)cSenderAssignment_3.eContents().get(0);
+		private final Keyword cAuthorKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cAuthorAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cAuthorSTRINGTerminalRuleCall_5_0 = (RuleCall)cAuthorAssignment_5.eContents().get(0);
+		
+		//Config:
+		//	'BusinessName' businessName=STRING
+		//	'Sender' sender=STRING
+		//	'Author' author=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'BusinessName' businessName=STRING 'Sender' sender=STRING 'Author' author=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'BusinessName'
@@ -54,82 +90,56 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getBusinessNameSTRINGTerminalRuleCall_1_0() { return cBusinessNameSTRINGTerminalRuleCall_1_0; }
 		
-		//config=Config
-		public Assignment getConfigAssignment_2() { return cConfigAssignment_2; }
-		
-		//Config
-		public RuleCall getConfigConfigParserRuleCall_2_0() { return cConfigConfigParserRuleCall_2_0; }
-		
-		//homePage=HomePage
-		public Assignment getHomePageAssignment_3() { return cHomePageAssignment_3; }
-		
-		//HomePage
-		public RuleCall getHomePageHomePageParserRuleCall_3_0() { return cHomePageHomePageParserRuleCall_3_0; }
-		
-		//pages+=Pages*
-		public Assignment getPagesAssignment_4() { return cPagesAssignment_4; }
-		
-		//Pages
-		public RuleCall getPagesPagesParserRuleCall_4_0() { return cPagesPagesParserRuleCall_4_0; }
-	}
-	public class ConfigElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Config");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSenderKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cSenderAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cSenderSTRINGTerminalRuleCall_1_0 = (RuleCall)cSenderAssignment_1.eContents().get(0);
-		private final Keyword cAuthorKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cAuthorAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAuthorSTRINGTerminalRuleCall_3_0 = (RuleCall)cAuthorAssignment_3.eContents().get(0);
-		
-		//Config:
-		//	'Sender' sender=STRING
-		//	'Author' author=STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'Sender' sender=STRING 'Author' author=STRING
-		public Group getGroup() { return cGroup; }
-		
 		//'Sender'
-		public Keyword getSenderKeyword_0() { return cSenderKeyword_0; }
+		public Keyword getSenderKeyword_2() { return cSenderKeyword_2; }
 		
 		//sender=STRING
-		public Assignment getSenderAssignment_1() { return cSenderAssignment_1; }
+		public Assignment getSenderAssignment_3() { return cSenderAssignment_3; }
 		
 		//STRING
-		public RuleCall getSenderSTRINGTerminalRuleCall_1_0() { return cSenderSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getSenderSTRINGTerminalRuleCall_3_0() { return cSenderSTRINGTerminalRuleCall_3_0; }
 		
 		//'Author'
-		public Keyword getAuthorKeyword_2() { return cAuthorKeyword_2; }
+		public Keyword getAuthorKeyword_4() { return cAuthorKeyword_4; }
 		
 		//author=STRING
-		public Assignment getAuthorAssignment_3() { return cAuthorAssignment_3; }
+		public Assignment getAuthorAssignment_5() { return cAuthorAssignment_5; }
 		
 		//STRING
-		public RuleCall getAuthorSTRINGTerminalRuleCall_3_0() { return cAuthorSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getAuthorSTRINGTerminalRuleCall_5_0() { return cAuthorSTRINGTerminalRuleCall_5_0; }
 	}
 	public class HomePageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.HomePage");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIntroductionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIntroductionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIntroductionSTRINGTerminalRuleCall_1_0 = (RuleCall)cIntroductionAssignment_1.eContents().get(0);
+		private final Keyword cHomePageKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIntroductionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIntroductionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIntroductionSTRINGTerminalRuleCall_2_0 = (RuleCall)cIntroductionAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//HomePage:
-		//	'Introduction' Introduction=STRING;
+		//	'HomePage{'
+		//	'Introduction' Introduction=STRING
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Introduction' Introduction=STRING
+		//'HomePage{' 'Introduction' Introduction=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
+		//'HomePage{'
+		public Keyword getHomePageKeyword_0() { return cHomePageKeyword_0; }
+		
 		//'Introduction'
-		public Keyword getIntroductionKeyword_0() { return cIntroductionKeyword_0; }
+		public Keyword getIntroductionKeyword_1() { return cIntroductionKeyword_1; }
 		
 		//Introduction=STRING
-		public Assignment getIntroductionAssignment_1() { return cIntroductionAssignment_1; }
+		public Assignment getIntroductionAssignment_2() { return cIntroductionAssignment_2; }
 		
 		//STRING
-		public RuleCall getIntroductionSTRINGTerminalRuleCall_1_0() { return cIntroductionSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getIntroductionSTRINGTerminalRuleCall_2_0() { return cIntroductionSTRINGTerminalRuleCall_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 	public class PagesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Pages");
@@ -401,7 +411,6 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//GenerateMeProgram:
-	//	'BusinessName' businessName=STRING
 	//	config=Config
 	//	homePage=HomePage
 	//	pages+=Pages*;
@@ -414,6 +423,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Config:
+	//	'BusinessName' businessName=STRING
 	//	'Sender' sender=STRING
 	//	'Author' author=STRING;
 	public ConfigElements getConfigAccess() {
@@ -425,7 +435,9 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//HomePage:
-	//	'Introduction' Introduction=STRING;
+	//	'HomePage{'
+	//	'Introduction' Introduction=STRING
+	//	'}';
 	public HomePageElements getHomePageAccess() {
 		return pHomePage;
 	}

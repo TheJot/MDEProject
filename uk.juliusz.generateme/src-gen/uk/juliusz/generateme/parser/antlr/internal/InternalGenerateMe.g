@@ -76,34 +76,12 @@ ruleGenerateMeProgram returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='BusinessName'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getGenerateMeProgramAccess().getBusinessNameKeyword_0());
-		}
-		(
-			(
-				lv_businessName_1_0=RULE_STRING
-				{
-					newLeafNode(lv_businessName_1_0, grammarAccess.getGenerateMeProgramAccess().getBusinessNameSTRINGTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getGenerateMeProgramRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"businessName",
-						lv_businessName_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getConfigConfigParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getConfigConfigParserRuleCall_0_0());
 				}
-				lv_config_2_0=ruleConfig
+				lv_config_0_0=ruleConfig
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGenerateMeProgramRule());
@@ -111,7 +89,7 @@ ruleGenerateMeProgram returns [EObject current=null]
 					set(
 						$current,
 						"config",
-						lv_config_2_0,
+						lv_config_0_0,
 						"uk.juliusz.generateme.GenerateMe.Config");
 					afterParserOrEnumRuleCall();
 				}
@@ -120,9 +98,9 @@ ruleGenerateMeProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getHomePageHomePageParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getHomePageHomePageParserRuleCall_1_0());
 				}
-				lv_homePage_3_0=ruleHomePage
+				lv_homePage_1_0=ruleHomePage
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGenerateMeProgramRule());
@@ -130,7 +108,7 @@ ruleGenerateMeProgram returns [EObject current=null]
 					set(
 						$current,
 						"homePage",
-						lv_homePage_3_0,
+						lv_homePage_1_0,
 						"uk.juliusz.generateme.GenerateMe.HomePage");
 					afterParserOrEnumRuleCall();
 				}
@@ -139,9 +117,9 @@ ruleGenerateMeProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getPagesPagesParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getGenerateMeProgramAccess().getPagesPagesParserRuleCall_2_0());
 				}
-				lv_pages_4_0=rulePages
+				lv_pages_2_0=rulePages
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGenerateMeProgramRule());
@@ -149,7 +127,7 @@ ruleGenerateMeProgram returns [EObject current=null]
 					add(
 						$current,
 						"pages",
-						lv_pages_4_0,
+						lv_pages_2_0,
 						"uk.juliusz.generateme.GenerateMe.Pages");
 					afterParserOrEnumRuleCall();
 				}
@@ -174,15 +152,37 @@ ruleConfig returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Sender'
+		otherlv_0='BusinessName'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getConfigAccess().getSenderKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getConfigAccess().getBusinessNameKeyword_0());
 		}
 		(
 			(
-				lv_sender_1_0=RULE_STRING
+				lv_businessName_1_0=RULE_STRING
 				{
-					newLeafNode(lv_sender_1_0, grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_businessName_1_0, grammarAccess.getConfigAccess().getBusinessNameSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConfigRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"businessName",
+						lv_businessName_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_2='Sender'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getConfigAccess().getSenderKeyword_2());
+		}
+		(
+			(
+				lv_sender_3_0=RULE_STRING
+				{
+					newLeafNode(lv_sender_3_0, grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0());
 				}
 				{
 					if ($current==null) {
@@ -191,20 +191,20 @@ ruleConfig returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"sender",
-						lv_sender_1_0,
+						lv_sender_3_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_2='Author'
+		otherlv_4='Author'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getConfigAccess().getAuthorKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getConfigAccess().getAuthorKeyword_4());
 		}
 		(
 			(
-				lv_author_3_0=RULE_STRING
+				lv_author_5_0=RULE_STRING
 				{
-					newLeafNode(lv_author_3_0, grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_3_0());
+					newLeafNode(lv_author_5_0, grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0());
 				}
 				{
 					if ($current==null) {
@@ -213,7 +213,7 @@ ruleConfig returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"author",
-						lv_author_3_0,
+						lv_author_5_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -237,15 +237,19 @@ ruleHomePage returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Introduction'
+		otherlv_0='HomePage{'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getHomePageAccess().getIntroductionKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getHomePageAccess().getHomePageKeyword_0());
+		}
+		otherlv_1='Introduction'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getHomePageAccess().getIntroductionKeyword_1());
 		}
 		(
 			(
-				lv_Introduction_1_0=RULE_STRING
+				lv_Introduction_2_0=RULE_STRING
 				{
-					newLeafNode(lv_Introduction_1_0, grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_Introduction_2_0, grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -254,11 +258,15 @@ ruleHomePage returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"Introduction",
-						lv_Introduction_1_0,
+						lv_Introduction_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
+		otherlv_3='}'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getHomePageAccess().getRightCurlyBracketKeyword_3());
+		}
 	)
 ;
 

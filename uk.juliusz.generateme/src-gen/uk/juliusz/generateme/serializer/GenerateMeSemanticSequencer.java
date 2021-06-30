@@ -69,18 +69,21 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Config returns Config
 	 *
 	 * Constraint:
-	 *     (sender=STRING author=STRING)
+	 *     (businessName=STRING sender=STRING author=STRING)
 	 */
 	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__BUSINESS_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__BUSINESS_NAME));
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__SENDER) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__SENDER));
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__AUTHOR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__AUTHOR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_1_0(), semanticObject.getSender());
-		feeder.accept(grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_3_0(), semanticObject.getAuthor());
+		feeder.accept(grammarAccess.getConfigAccess().getBusinessNameSTRINGTerminalRuleCall_1_0(), semanticObject.getBusinessName());
+		feeder.accept(grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0(), semanticObject.getSender());
+		feeder.accept(grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0(), semanticObject.getAuthor());
 		feeder.finish();
 	}
 	
@@ -147,7 +150,7 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     GenerateMeProgram returns GenerateMeProgram
 	 *
 	 * Constraint:
-	 *     (businessName=STRING config=Config homePage=HomePage pages+=Pages*)
+	 *     (config=Config homePage=HomePage pages+=Pages*)
 	 */
 	protected void sequence_GenerateMeProgram(ISerializationContext context, GenerateMeProgram semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -167,7 +170,7 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.HOME_PAGE__INTRODUCTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_1_0(), semanticObject.getIntroduction());
+		feeder.accept(grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_2_0(), semanticObject.getIntroduction());
 		feeder.finish();
 	}
 	

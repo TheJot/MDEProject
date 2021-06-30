@@ -3,10 +3,19 @@
  */
 package uk.juliusz.generateme.generator;
 
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import uk.juliusz.generateme.generateMe.ContentPage;
+import uk.juliusz.generateme.generateMe.GalleryPage;
+import uk.juliusz.generateme.generateMe.GenerateMeProgram;
+import uk.juliusz.generateme.generateMe.HomePage;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +26,43 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class GenerateMeGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    final GenerateMeProgram model = ((GenerateMeProgram) _head);
+    fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.doGenerate(model));
+  }
+  
+  public String deriveTargetFileNameFor(final GenerateMeProgram program, final Resource resource) {
+    String _xblockexpression = null;
+    {
+      resource.getURI().trimFileExtension().lastSegment();
+      _xblockexpression = resource.getURI().appendFileExtension("txt").lastSegment();
+    }
+    return _xblockexpression;
+  }
+  
+  public String doGenerate(final GenerateMeProgram program) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Program contains:");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("-");
+    int _size = IteratorExtensions.size(Iterators.<GalleryPage>filter(program.eAllContents(), GalleryPage.class));
+    _builder.append(_size, "\t\t");
+    _builder.append(" galleries");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("-");
+    int _size_1 = IteratorExtensions.size(Iterators.<HomePage>filter(program.eAllContents(), HomePage.class));
+    _builder.append(_size_1, "\t\t");
+    _builder.append(" home pages");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("- ");
+    int _size_2 = IteratorExtensions.size(Iterators.<ContentPage>filter(program.eAllContents(), ContentPage.class));
+    _builder.append(_size_2, "\t\t");
+    _builder.append(" content pages");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder.toString();
   }
 }

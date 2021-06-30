@@ -68,22 +68,13 @@ public interface GenerateMePackage extends EPackage
   int GENERATE_ME_PROGRAM = 0;
 
   /**
-   * The feature id for the '<em><b>Business Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GENERATE_ME_PROGRAM__BUSINESS_NAME = 0;
-
-  /**
    * The feature id for the '<em><b>Config</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GENERATE_ME_PROGRAM__CONFIG = 1;
+  int GENERATE_ME_PROGRAM__CONFIG = 0;
 
   /**
    * The feature id for the '<em><b>Home Page</b></em>' containment reference.
@@ -92,7 +83,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int GENERATE_ME_PROGRAM__HOME_PAGE = 2;
+  int GENERATE_ME_PROGRAM__HOME_PAGE = 1;
 
   /**
    * The feature id for the '<em><b>Pages</b></em>' containment reference list.
@@ -101,7 +92,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int GENERATE_ME_PROGRAM__PAGES = 3;
+  int GENERATE_ME_PROGRAM__PAGES = 2;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -110,7 +101,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int GENERATE_ME_PROGRAM_FEATURE_COUNT = 4;
+  int GENERATE_ME_PROGRAM_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.ConfigImpl <em>Config</em>}' class.
@@ -123,13 +114,22 @@ public interface GenerateMePackage extends EPackage
   int CONFIG = 1;
 
   /**
+   * The feature id for the '<em><b>Business Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONFIG__BUSINESS_NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Sender</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIG__SENDER = 0;
+  int CONFIG__SENDER = 1;
 
   /**
    * The feature id for the '<em><b>Author</b></em>' attribute.
@@ -138,7 +138,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIG__AUTHOR = 1;
+  int CONFIG__AUTHOR = 2;
 
   /**
    * The number of structural features of the '<em>Config</em>' class.
@@ -147,7 +147,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONFIG_FEATURE_COUNT = 2;
+  int CONFIG_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.HomePageImpl <em>Home Page</em>}' class.
@@ -374,17 +374,6 @@ public interface GenerateMePackage extends EPackage
   EClass getGenerateMeProgram();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getBusinessName <em>Business Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Business Name</em>'.
-   * @see uk.juliusz.generateme.generateMe.GenerateMeProgram#getBusinessName()
-   * @see #getGenerateMeProgram()
-   * @generated
-   */
-  EAttribute getGenerateMeProgram_BusinessName();
-
-  /**
    * Returns the meta object for the containment reference '{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getConfig <em>Config</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -426,6 +415,17 @@ public interface GenerateMePackage extends EPackage
    * @generated
    */
   EClass getConfig();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Config#getBusinessName <em>Business Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Business Name</em>'.
+   * @see uk.juliusz.generateme.generateMe.Config#getBusinessName()
+   * @see #getConfig()
+   * @generated
+   */
+  EAttribute getConfig_BusinessName();
 
   /**
    * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Config#getSender <em>Sender</em>}'.
@@ -631,14 +631,6 @@ public interface GenerateMePackage extends EPackage
     EClass GENERATE_ME_PROGRAM = eINSTANCE.getGenerateMeProgram();
 
     /**
-     * The meta object literal for the '<em><b>Business Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute GENERATE_ME_PROGRAM__BUSINESS_NAME = eINSTANCE.getGenerateMeProgram_BusinessName();
-
-    /**
      * The meta object literal for the '<em><b>Config</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -671,6 +663,14 @@ public interface GenerateMePackage extends EPackage
      * @generated
      */
     EClass CONFIG = eINSTANCE.getConfig();
+
+    /**
+     * The meta object literal for the '<em><b>Business Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONFIG__BUSINESS_NAME = eINSTANCE.getConfig_BusinessName();
 
     /**
      * The meta object literal for the '<em><b>Sender</b></em>' attribute feature.

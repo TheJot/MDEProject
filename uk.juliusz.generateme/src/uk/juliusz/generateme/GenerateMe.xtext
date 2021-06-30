@@ -6,13 +6,13 @@ generate generateMe "http://www.juliusz.uk/generateme/GenerateMe"
 
 
 GenerateMeProgram:
-	'BusinessName' businessName=STRING
 	config = Config
 	homePage = HomePage
 	pages += Pages*
 ;
 
 Config:
+	'BusinessName' businessName=STRING
 	'Sender' sender=STRING
 	'Author' author=STRING
 ;

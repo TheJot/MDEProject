@@ -21,6 +21,7 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.ConfigImpl#getBusinessName <em>Business Name</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.ConfigImpl#getSender <em>Sender</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.ConfigImpl#getAuthor <em>Author</em>}</li>
  * </ul>
@@ -29,6 +30,26 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
  */
 public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
 {
+  /**
+   * The default value of the '{@link #getBusinessName() <em>Business Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBusinessName()
+   * @generated
+   * @ordered
+   */
+  protected static final String BUSINESS_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBusinessName() <em>Business Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBusinessName()
+   * @generated
+   * @ordered
+   */
+  protected String businessName = BUSINESS_NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getSender() <em>Sender</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -96,6 +117,31 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
    * @generated
    */
   @Override
+  public String getBusinessName()
+  {
+    return businessName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setBusinessName(String newBusinessName)
+  {
+    String oldBusinessName = businessName;
+    businessName = newBusinessName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.CONFIG__BUSINESS_NAME, oldBusinessName, businessName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getSender()
   {
     return sender;
@@ -150,6 +196,8 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   {
     switch (featureID)
     {
+      case GenerateMePackage.CONFIG__BUSINESS_NAME:
+        return getBusinessName();
       case GenerateMePackage.CONFIG__SENDER:
         return getSender();
       case GenerateMePackage.CONFIG__AUTHOR:
@@ -168,6 +216,9 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   {
     switch (featureID)
     {
+      case GenerateMePackage.CONFIG__BUSINESS_NAME:
+        setBusinessName((String)newValue);
+        return;
       case GenerateMePackage.CONFIG__SENDER:
         setSender((String)newValue);
         return;
@@ -188,6 +239,9 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   {
     switch (featureID)
     {
+      case GenerateMePackage.CONFIG__BUSINESS_NAME:
+        setBusinessName(BUSINESS_NAME_EDEFAULT);
+        return;
       case GenerateMePackage.CONFIG__SENDER:
         setSender(SENDER_EDEFAULT);
         return;
@@ -208,6 +262,8 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
   {
     switch (featureID)
     {
+      case GenerateMePackage.CONFIG__BUSINESS_NAME:
+        return BUSINESS_NAME_EDEFAULT == null ? businessName != null : !BUSINESS_NAME_EDEFAULT.equals(businessName);
       case GenerateMePackage.CONFIG__SENDER:
         return SENDER_EDEFAULT == null ? sender != null : !SENDER_EDEFAULT.equals(sender);
       case GenerateMePackage.CONFIG__AUTHOR:
@@ -227,7 +283,9 @@ public class ConfigImpl extends MinimalEObjectImpl.Container implements Config
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (sender: ");
+    result.append(" (businessName: ");
+    result.append(businessName);
+    result.append(", sender: ");
     result.append(sender);
     result.append(", author: ");
     result.append(author);

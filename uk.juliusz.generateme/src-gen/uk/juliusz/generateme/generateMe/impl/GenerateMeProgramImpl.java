@@ -33,7 +33,6 @@ import uk.juliusz.generateme.generateMe.Pages;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.GenerateMeProgramImpl#getBusinessName <em>Business Name</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.GenerateMeProgramImpl#getConfig <em>Config</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.GenerateMeProgramImpl#getHomePage <em>Home Page</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.GenerateMeProgramImpl#getPages <em>Pages</em>}</li>
@@ -43,26 +42,6 @@ import uk.juliusz.generateme.generateMe.Pages;
  */
 public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implements GenerateMeProgram
 {
-  /**
-   * The default value of the '{@link #getBusinessName() <em>Business Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBusinessName()
-   * @generated
-   * @ordered
-   */
-  protected static final String BUSINESS_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBusinessName() <em>Business Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBusinessName()
-   * @generated
-   * @ordered
-   */
-  protected String businessName = BUSINESS_NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -112,31 +91,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
   protected EClass eStaticClass()
   {
     return GenerateMePackage.Literals.GENERATE_ME_PROGRAM;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getBusinessName()
-  {
-    return businessName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setBusinessName(String newBusinessName)
-  {
-    String oldBusinessName = businessName;
-    businessName = newBusinessName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.GENERATE_ME_PROGRAM__BUSINESS_NAME, oldBusinessName, businessName));
   }
 
   /**
@@ -284,8 +238,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case GenerateMePackage.GENERATE_ME_PROGRAM__BUSINESS_NAME:
-        return getBusinessName();
       case GenerateMePackage.GENERATE_ME_PROGRAM__CONFIG:
         return getConfig();
       case GenerateMePackage.GENERATE_ME_PROGRAM__HOME_PAGE:
@@ -307,9 +259,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case GenerateMePackage.GENERATE_ME_PROGRAM__BUSINESS_NAME:
-        setBusinessName((String)newValue);
-        return;
       case GenerateMePackage.GENERATE_ME_PROGRAM__CONFIG:
         setConfig((Config)newValue);
         return;
@@ -334,9 +283,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case GenerateMePackage.GENERATE_ME_PROGRAM__BUSINESS_NAME:
-        setBusinessName(BUSINESS_NAME_EDEFAULT);
-        return;
       case GenerateMePackage.GENERATE_ME_PROGRAM__CONFIG:
         setConfig((Config)null);
         return;
@@ -360,8 +306,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case GenerateMePackage.GENERATE_ME_PROGRAM__BUSINESS_NAME:
-        return BUSINESS_NAME_EDEFAULT == null ? businessName != null : !BUSINESS_NAME_EDEFAULT.equals(businessName);
       case GenerateMePackage.GENERATE_ME_PROGRAM__CONFIG:
         return config != null;
       case GenerateMePackage.GENERATE_ME_PROGRAM__HOME_PAGE:
@@ -370,23 +314,6 @@ public class GenerateMeProgramImpl extends MinimalEObjectImpl.Container implemen
         return pages != null && !pages.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (businessName: ");
-    result.append(businessName);
-    result.append(')');
-    return result.toString();
   }
 
 } //GenerateMeProgramImpl

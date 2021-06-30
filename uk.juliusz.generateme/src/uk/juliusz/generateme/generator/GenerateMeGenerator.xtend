@@ -7,6 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import uk.juliusz.generateme.generateMe.GenerateMeProgram
+import uk.juliusz.generateme.generateMe.GalleryPage
+import uk.juliusz.generateme.generateMe.HomePage
+import uk.juliusz.generateme.generateMe.ContentPage
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +19,27 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class GenerateMeGenerator extends AbstractGenerator {
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		val model = resource.contents.head as GenerateMeProgram
+		fsa.generateFile(deriveTargetFileNameFor(model, resource), model.doGenerate)
 	}
+	
+	def deriveTargetFileNameFor(GenerateMeProgram program, Resource resource) {
+		resource.URI.trimFileExtension().lastSegment
+		resource.URI.appendFileExtension('txt').lastSegment
+	}
+	
+	def String doGenerate(GenerateMeProgram program) '''
+		Program contains:
+				-«program.eAllContents.filter(GalleryPage).size» galleries
+				-«program.eAllContents.filter(HomePage).size» home pages
+				- «program.eAllContents.filter(ContentPage).size» content pages
+
+	'''
+	
+	
+	
+	
+	
+	
 }

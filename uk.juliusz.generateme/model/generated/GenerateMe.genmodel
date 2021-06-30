@@ -7,12 +7,12 @@
   <genPackages prefix="GenerateMe" basePackage="uk.juliusz.generateme" disposableProviderFactory="true"
       fileExtensions="gme" ecorePackage="GenerateMe.ecore#/">
     <genClasses ecoreClass="GenerateMe.ecore#//GenerateMeProgram">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//GenerateMeProgram/businessName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//GenerateMeProgram/config"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//GenerateMeProgram/homePage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//GenerateMeProgram/pages"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//Config">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/businessName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/sender"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/author"/>
     </genClasses>

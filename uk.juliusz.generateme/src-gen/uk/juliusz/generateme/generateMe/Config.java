@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link uk.juliusz.generateme.generateMe.Config#getBusinessName <em>Business Name</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.Config#getSender <em>Sender</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.Config#getAuthor <em>Author</em>}</li>
  * </ul>
@@ -24,6 +25,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Config extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Business Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Business Name</em>' attribute.
+   * @see #setBusinessName(String)
+   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getConfig_BusinessName()
+   * @model
+   * @generated
+   */
+  String getBusinessName();
+
+  /**
+   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.Config#getBusinessName <em>Business Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Business Name</em>' attribute.
+   * @see #getBusinessName()
+   * @generated
+   */
+  void setBusinessName(String value);
+
   /**
    * Returns the value of the '<em><b>Sender</b></em>' attribute.
    * <!-- begin-user-doc -->

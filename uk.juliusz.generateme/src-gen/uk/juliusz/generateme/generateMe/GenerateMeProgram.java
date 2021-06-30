@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getBusinessName <em>Business Name</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getConfig <em>Config</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getHomePage <em>Home Page</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getPages <em>Pages</em>}</li>
@@ -28,28 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GenerateMeProgram extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Business Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Business Name</em>' attribute.
-   * @see #setBusinessName(String)
-   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getGenerateMeProgram_BusinessName()
-   * @model
-   * @generated
-   */
-  String getBusinessName();
-
-  /**
-   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.GenerateMeProgram#getBusinessName <em>Business Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Business Name</em>' attribute.
-   * @see #getBusinessName()
-   * @generated
-   */
-  void setBusinessName(String value);
-
   /**
    * Returns the value of the '<em><b>Config</b></em>' containment reference.
    * <!-- begin-user-doc -->
