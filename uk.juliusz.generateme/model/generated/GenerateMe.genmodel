@@ -17,6 +17,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/author"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//HomePage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//HomePage/content"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//HomePage/Introduction"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//Pages">

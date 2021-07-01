@@ -160,13 +160,22 @@ public interface GenerateMePackage extends EPackage
   int HOME_PAGE = 2;
 
   /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HOME_PAGE__CONTENT = 0;
+
+  /**
    * The feature id for the '<em><b>Introduction</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HOME_PAGE__INTRODUCTION = 0;
+  int HOME_PAGE__INTRODUCTION = 1;
 
   /**
    * The number of structural features of the '<em>Home Page</em>' class.
@@ -175,7 +184,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int HOME_PAGE_FEATURE_COUNT = 1;
+  int HOME_PAGE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.PagesImpl <em>Pages</em>}' class.
@@ -460,6 +469,17 @@ public interface GenerateMePackage extends EPackage
   EClass getHomePage();
 
   /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.HomePage#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see uk.juliusz.generateme.generateMe.HomePage#getContent()
+   * @see #getHomePage()
+   * @generated
+   */
+  EAttribute getHomePage_Content();
+
+  /**
    * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.HomePage#getIntroduction <em>Introduction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -697,6 +717,14 @@ public interface GenerateMePackage extends EPackage
      * @generated
      */
     EClass HOME_PAGE = eINSTANCE.getHomePage();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HOME_PAGE__CONTENT = eINSTANCE.getHomePage_Content();
 
     /**
      * The meta object literal for the '<em><b>Introduction</b></em>' attribute feature.

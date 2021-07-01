@@ -21,6 +21,7 @@ import uk.juliusz.generateme.generateMe.HomePage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.HomePageImpl#getContent <em>Content</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.impl.HomePageImpl#getIntroduction <em>Introduction</em>}</li>
  * </ul>
  *
@@ -28,6 +29,26 @@ import uk.juliusz.generateme.generateMe.HomePage;
  */
 public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePage
 {
+  /**
+   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected static final String CONTENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getContent()
+   * @generated
+   * @ordered
+   */
+  protected String content = CONTENT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getIntroduction() <em>Introduction</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -75,6 +96,31 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
    * @generated
    */
   @Override
+  public String getContent()
+  {
+    return content;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setContent(String newContent)
+  {
+    String oldContent = content;
+    content = newContent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.HOME_PAGE__CONTENT, oldContent, content));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getIntroduction()
   {
     return introduction;
@@ -104,6 +150,8 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
   {
     switch (featureID)
     {
+      case GenerateMePackage.HOME_PAGE__CONTENT:
+        return getContent();
       case GenerateMePackage.HOME_PAGE__INTRODUCTION:
         return getIntroduction();
     }
@@ -120,6 +168,9 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
   {
     switch (featureID)
     {
+      case GenerateMePackage.HOME_PAGE__CONTENT:
+        setContent((String)newValue);
+        return;
       case GenerateMePackage.HOME_PAGE__INTRODUCTION:
         setIntroduction((String)newValue);
         return;
@@ -137,6 +188,9 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
   {
     switch (featureID)
     {
+      case GenerateMePackage.HOME_PAGE__CONTENT:
+        setContent(CONTENT_EDEFAULT);
+        return;
       case GenerateMePackage.HOME_PAGE__INTRODUCTION:
         setIntroduction(INTRODUCTION_EDEFAULT);
         return;
@@ -154,6 +208,8 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
   {
     switch (featureID)
     {
+      case GenerateMePackage.HOME_PAGE__CONTENT:
+        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
       case GenerateMePackage.HOME_PAGE__INTRODUCTION:
         return INTRODUCTION_EDEFAULT == null ? introduction != null : !INTRODUCTION_EDEFAULT.equals(introduction);
     }
@@ -171,7 +227,9 @@ public class HomePageImpl extends MinimalEObjectImpl.Container implements HomePa
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (Introduction: ");
+    result.append(" (content: ");
+    result.append(content);
+    result.append(", Introduction: ");
     result.append(introduction);
     result.append(')');
     return result.toString();

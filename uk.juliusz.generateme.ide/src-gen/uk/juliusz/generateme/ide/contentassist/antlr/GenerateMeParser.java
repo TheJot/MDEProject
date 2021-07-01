@@ -45,7 +45,8 @@ public class GenerateMeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConfigAccess().getBusinessNameAssignment_1(), "rule__Config__BusinessNameAssignment_1");
 			builder.put(grammarAccess.getConfigAccess().getSenderAssignment_3(), "rule__Config__SenderAssignment_3");
 			builder.put(grammarAccess.getConfigAccess().getAuthorAssignment_5(), "rule__Config__AuthorAssignment_5");
-			builder.put(grammarAccess.getHomePageAccess().getIntroductionAssignment_2(), "rule__HomePage__IntroductionAssignment_2");
+			builder.put(grammarAccess.getHomePageAccess().getContentAssignment_2(), "rule__HomePage__ContentAssignment_2");
+			builder.put(grammarAccess.getHomePageAccess().getIntroductionAssignment_4(), "rule__HomePage__IntroductionAssignment_4");
 			builder.put(grammarAccess.getContentPageAccess().getNameAssignment_1(), "rule__ContentPage__NameAssignment_1");
 			builder.put(grammarAccess.getContentPageAccess().getContentAssignment_4(), "rule__ContentPage__ContentAssignment_4");
 			builder.put(grammarAccess.getContactUsPageAccess().getNameAssignment_1(), "rule__ContactUsPage__NameAssignment_1");

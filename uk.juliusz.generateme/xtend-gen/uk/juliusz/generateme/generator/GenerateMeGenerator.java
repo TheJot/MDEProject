@@ -10,12 +10,16 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import uk.juliusz.generateme.generateMe.Config;
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GalleryPage;
 import uk.juliusz.generateme.generateMe.GenerateMeProgram;
 import uk.juliusz.generateme.generateMe.HomePage;
+import uk.juliusz.generateme.generateMe.Pages;
 
 /**
  * Generates code from your model files on save.
@@ -42,8 +46,22 @@ public class GenerateMeGenerator extends AbstractGenerator {
       String _plus_2 = (_plus_1 + ".php");
       fsa.generateFile(_plus_2, this.doGenerate(GalleryPage));
     }
-    fsa.generateFile("index.php", this.doGenerate(model));
+    Iterable<Config> _iterable_2 = IteratorExtensions.<Config>toIterable(Iterators.<Config>filter(resource.getAllContents(), Config.class));
+    for (final Config Config : _iterable_2) {
+      fsa.generateFile("header.php", this.doGenerate(Config));
+    }
+    Iterable<HomePage> _iterable_3 = IteratorExtensions.<HomePage>toIterable(Iterators.<HomePage>filter(resource.getAllContents(), HomePage.class));
+    for (final HomePage HomePage : _iterable_3) {
+      fsa.generateFile("index.php", this.doGenerate(HomePage));
+    }
     fsa.generateFile("contact.php", this.doGenerate(model));
+  }
+  
+  public void getLinks(final Resource resource) {
+    Iterable<Pages> _iterable = IteratorExtensions.<Pages>toIterable(Iterators.<Pages>filter(resource.getAllContents(), Pages.class));
+    for (final Pages Element : _iterable) {
+      Element.getName();
+    }
   }
   
   public String deriveTargetFileNameFor(final GenerateMeProgram program, final Resource resource) {
@@ -53,6 +71,29 @@ public class GenerateMeGenerator extends AbstractGenerator {
       _xblockexpression = resource.getURI().appendFileExtension("txt").lastSegment();
     }
     return _xblockexpression;
+  }
+  
+  public String doGenerate(final Pages page) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Program contains:");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("This is gallery: ");
+    String _name = page.getName();
+    _builder.append(_name, "\t\t");
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    {
+      IntegerRange _upTo = new IntegerRange(1, 5);
+      for(final Integer i : _upTo) {
+        _builder.append("\t\t");
+        String _println = InputOutput.<String>println(("Loops twice loop " + i));
+        _builder.append(_println, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.newLine();
+    return _builder.toString();
   }
   
   public String doGenerate(final GalleryPage gallery) {
@@ -65,6 +106,88 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append(_name, "\t\t");
     _builder.append(" ");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String doGenerate(final HomePage homepage) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("include(\'header.php\');");
+    _builder.newLine();
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<div class=\"row\"><br><br><br><br><br><br><br></div>");
+    _builder.newLine();
+    _builder.append("<div class=\"container\">");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-6 title\"> <center><h2>Welcome!</h2></center></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-8 \">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<center>");
+    _builder.newLine();
+    _builder.append("            ");
+    String _introduction = homepage.getIntroduction();
+    _builder.append(_introduction, "            ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("            ");
+    _builder.append("</center>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<br><br><br><br><br><br>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
+    _builder.newLine();
     _builder.newLine();
     return _builder.toString();
   }
@@ -95,6 +218,227 @@ public class GenerateMeGenerator extends AbstractGenerator {
     String _introduction = program.getHomePage().getIntroduction();
     _builder.append(_introduction, "\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String doGenerate(final Config config) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<!-- Shared header containing the menu bar -->");
+    _builder.newLine();
+    _builder.append("<!DOCTYPE html>");
+    _builder.newLine();
+    _builder.append("<html lang=\"en\">");
+    _builder.newLine();
+    _builder.append("<head>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<title>");
+    String _businessName = config.getBusinessName();
+    _builder.append(_businessName, "    ");
+    _builder.append("</title>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("<meta charset=\"utf-8\">");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<!-- Bootstrap stylesheets and includes -->");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("</head>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<body>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<!-- Navbar -->");
+    _builder.newLine();
+    _builder.append("<nav class=\"navbar navbar-default navbar-fixed-top\">");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"container-fluid\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"navbar-header\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<a class=\"navbar-brand\" href=\"index.php\">");
+    String _businessName_1 = config.getBusinessName();
+    _builder.append(_businessName_1, "            ");
+    _builder.append("</a>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"collapse navbar-collapse\" id=\"navbar\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<ul class=\"nav navbar-nav\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<li><a href=\"index.php\">Home</a></li>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<li class=\"dropdown\">");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Top lists<span class=\"caret\"></span></a>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<ul class=\"dropdown-menu\">");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("<li><a href=\"topArguments.php\">Top arguments</a></li>");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("<li><a href=\"topDebates.php\">Top debates</a></li>");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("<li><a href=\"topUsers.php\">Top users</a></li>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("</li>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<li><a href=\"debateStart.php\">Create debate</a></li>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<li><a href=\"debates.php\">All debates</a></li>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<li><a href=\"faq.php\">FAQ</a></li>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("</ul>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</nav>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<!-- Top spacer -->");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<div class=\"row\" >");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<br><br><br><br>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<!-- Custom global stylesheets -->");
+    _builder.newLine();
+    _builder.append("<style>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append(".btn-group-xs > .btn, .btn-xs {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("padding: .45rem .6rem;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("font-size: 1.25rem;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("line-height: 1.2;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("border-radius: .2rem;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("body{");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("background-image: url(\"images/bg.png\");");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("overflow-x: hidden;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append(".container{");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("border-radius: 25px;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("padding: 20px;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("background: rgba(240, 240, 240, 0.6);");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append(".title{");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("border-radius: 25px 25px 0px 0px;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("background: rgba(30,144,255, 0.1);");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("textarea {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("overflow-y: scroll;");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("resize: none;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("</style>");
+    _builder.newLine();
     _builder.newLine();
     return _builder.toString();
   }

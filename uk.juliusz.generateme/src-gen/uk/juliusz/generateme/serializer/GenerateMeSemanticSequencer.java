@@ -162,15 +162,18 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     HomePage returns HomePage
 	 *
 	 * Constraint:
-	 *     Introduction=STRING
+	 *     (content=STRING Introduction=STRING)
 	 */
 	protected void sequence_HomePage(ISerializationContext context, HomePage semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.HOME_PAGE__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.HOME_PAGE__CONTENT));
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.HOME_PAGE__INTRODUCTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.HOME_PAGE__INTRODUCTION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_2_0(), semanticObject.getIntroduction());
+		feeder.accept(grammarAccess.getHomePageAccess().getContentSTRINGTerminalRuleCall_2_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_4_0(), semanticObject.getIntroduction());
 		feeder.finish();
 	}
 	

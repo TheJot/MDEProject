@@ -11,6 +11,9 @@ import uk.juliusz.generateme.generateMe.GenerateMeProgram
 import uk.juliusz.generateme.generateMe.GalleryPage
 import uk.juliusz.generateme.generateMe.HomePage
 import uk.juliusz.generateme.generateMe.ContentPage
+import uk.juliusz.generateme.generateMe.Config
+import uk.juliusz.generateme.generateMe.Photo
+import uk.juliusz.generateme.generateMe.Pages
 
 /**
  * Generates code from your model files on save.
@@ -18,24 +21,46 @@ import uk.juliusz.generateme.generateMe.ContentPage
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class GenerateMeGenerator extends AbstractGenerator {
+	
+
 
 override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+	
 		val model = resource.contents.head as GenerateMeProgram
+		
 		fsa.generateFile(deriveTargetFileNameFor(model, resource), model.doGenerate)
 		
+		
+	
+	 
 	for(ContentPage : resource.allContents.filter(ContentPage).toIterable){
 		fsa.generateFile(ContentPage.name+'.php', model.doGenerate)
+
          }
          
     	for(GalleryPage : resource.allContents.filter(GalleryPage).toIterable){
 		fsa.generateFile('Gallery'+ GalleryPage.name+'.php', GalleryPage.doGenerate)
          }
-         
-		fsa.generateFile('index.php', model.doGenerate)
+
+	for(Config : resource.allContents.filter(Config).toIterable){
+		fsa.generateFile('header.php', Config.doGenerate)
+         }
+
+	for(HomePage : resource.allContents.filter(HomePage).toIterable){
+		fsa.generateFile('index.php', HomePage.doGenerate)
+         }
+
 		fsa.generateFile('contact.php', model.doGenerate)
-	
+
 	}
 	
+	
+	
+	def getLinks(Resource resource){
+		for(Element : resource.allContents.filter(Pages).toIterable){
+			Element.name			
+		}
+	}
 
 	
 	def deriveTargetFileNameFor(GenerateMeProgram program, Resource resource) {
@@ -44,12 +69,61 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	}
 	
 
+	def String doGenerate(Pages page) '''
+		Program contains:
+				This is gallery: «page.name» 
+				«FOR i: 1..5»
+				«println("Loops twice loop "+i)»
+				«ENDFOR»
+
+	'''
 
 	def String doGenerate(GalleryPage gallery) '''
 		Program contains:
 				This is gallery: «gallery.name» 
 
 	'''
+	
+	
+		def String doGenerate(HomePage homepage) '''
+<?php
+include('header.php');
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h2>Welcome!</h2></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-8 ">
+            <br>
+            <center>
+            «homepage.introduction»
+            </center>
+
+        </div>
+        <div class="col-sm-2 "></div>
+    </div>
+
+<br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
+
+	'''
+	
 	
 	def String doGenerate(GenerateMeProgram program) '''
 		Program contains:
@@ -61,7 +135,96 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	'''
 	
 	
-	
+			def String doGenerate(Config config) '''
+<!-- Shared header containing the menu bar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>«config.businessName»</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap stylesheets and includes -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.php">«config.businessName»</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.php">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Top lists<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="topArguments.php">Top arguments</a></li>
+                        <li><a href="topDebates.php">Top debates</a></li>
+                        <li><a href="topUsers.php">Top users</a></li>
+                    </ul>
+                </li>
+                <li><a href="debateStart.php">Create debate</a></li>
+                <li><a href="debates.php">All debates</a></li>
+                <li><a href="faq.php">FAQ</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+</div>
+
+<!-- Top spacer -->
+
+<div class="row" >
+    <br><br><br><br>
+
+</div>
+
+<!-- Custom global stylesheets -->
+<style>
+    .btn-group-xs > .btn, .btn-xs {
+        padding: .45rem .6rem;
+        font-size: 1.25rem;
+        line-height: 1.2;
+        border-radius: .2rem;
+    }
+    body{
+        background-image: url("images/bg.png");
+        overflow-x: hidden;
+    }
+
+    .container{
+        border-radius: 25px;
+        padding: 20px;
+        background: rgba(240, 240, 240, 0.6);
+    }
+
+    .title{
+        border-radius: 25px 25px 0px 0px;
+        background: rgba(30,144,255, 0.1);
+    }
+
+
+    textarea {
+        overflow-y: scroll;
+        resize: none;
+    }
+
+</style>
+
+	'''
+
+
 	
 	
 	

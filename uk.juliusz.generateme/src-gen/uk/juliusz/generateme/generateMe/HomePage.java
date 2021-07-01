@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link uk.juliusz.generateme.generateMe.HomePage#getContent <em>Content</em>}</li>
  *   <li>{@link uk.juliusz.generateme.generateMe.HomePage#getIntroduction <em>Introduction</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface HomePage extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Content</em>' attribute.
+   * @see #setContent(String)
+   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getHomePage_Content()
+   * @model
+   * @generated
+   */
+  String getContent();
+
+  /**
+   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.HomePage#getContent <em>Content</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Content</em>' attribute.
+   * @see #getContent()
+   * @generated
+   */
+  void setContent(String value);
+
   /**
    * Returns the value of the '<em><b>Introduction</b></em>' attribute.
    * <!-- begin-user-doc -->

@@ -112,34 +112,47 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.HomePage");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHomePageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cIntroductionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cIntroductionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cIntroductionSTRINGTerminalRuleCall_2_0 = (RuleCall)cIntroductionAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cPageHeaderKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cContentAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cContentSTRINGTerminalRuleCall_2_0 = (RuleCall)cContentAssignment_2.eContents().get(0);
+		private final Keyword cIntroductionKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cIntroductionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cIntroductionSTRINGTerminalRuleCall_4_0 = (RuleCall)cIntroductionAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//HomePage:
 		//	'HomePage{'
+		//	'PageHeader' content=STRING
 		//	'Introduction' Introduction=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'HomePage{' 'Introduction' Introduction=STRING '}'
+		//'HomePage{' 'PageHeader' content=STRING 'Introduction' Introduction=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'HomePage{'
 		public Keyword getHomePageKeyword_0() { return cHomePageKeyword_0; }
 		
-		//'Introduction'
-		public Keyword getIntroductionKeyword_1() { return cIntroductionKeyword_1; }
+		//'PageHeader'
+		public Keyword getPageHeaderKeyword_1() { return cPageHeaderKeyword_1; }
 		
-		//Introduction=STRING
-		public Assignment getIntroductionAssignment_2() { return cIntroductionAssignment_2; }
+		//content=STRING
+		public Assignment getContentAssignment_2() { return cContentAssignment_2; }
 		
 		//STRING
-		public RuleCall getIntroductionSTRINGTerminalRuleCall_2_0() { return cIntroductionSTRINGTerminalRuleCall_2_0; }
+		public RuleCall getContentSTRINGTerminalRuleCall_2_0() { return cContentSTRINGTerminalRuleCall_2_0; }
+		
+		//'Introduction'
+		public Keyword getIntroductionKeyword_3() { return cIntroductionKeyword_3; }
+		
+		//Introduction=STRING
+		public Assignment getIntroductionAssignment_4() { return cIntroductionAssignment_4; }
+		
+		//STRING
+		public RuleCall getIntroductionSTRINGTerminalRuleCall_4_0() { return cIntroductionSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 	public class PagesElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Pages");
@@ -436,6 +449,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//HomePage:
 	//	'HomePage{'
+	//	'PageHeader' content=STRING
 	//	'Introduction' Introduction=STRING
 	//	'}';
 	public HomePageElements getHomePageAccess() {

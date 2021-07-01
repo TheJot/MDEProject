@@ -20,6 +20,7 @@ Config:
 
 HomePage:
 	'HomePage{'
+		'PageHeader' content=STRING
 		'Introduction'Introduction=STRING
 	'}'
 ;

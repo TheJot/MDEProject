@@ -241,15 +241,37 @@ ruleHomePage returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getHomePageAccess().getHomePageKeyword_0());
 		}
-		otherlv_1='Introduction'
+		otherlv_1='PageHeader'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getHomePageAccess().getIntroductionKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getHomePageAccess().getPageHeaderKeyword_1());
 		}
 		(
 			(
-				lv_Introduction_2_0=RULE_STRING
+				lv_content_2_0=RULE_STRING
 				{
-					newLeafNode(lv_Introduction_2_0, grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_2_0());
+					newLeafNode(lv_content_2_0, grammarAccess.getHomePageAccess().getContentSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getHomePageRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_3='Introduction'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getHomePageAccess().getIntroductionKeyword_3());
+		}
+		(
+			(
+				lv_Introduction_4_0=RULE_STRING
+				{
+					newLeafNode(lv_Introduction_4_0, grammarAccess.getHomePageAccess().getIntroductionSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -258,14 +280,14 @@ ruleHomePage returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"Introduction",
-						lv_Introduction_2_0,
+						lv_Introduction_4_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_3='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getHomePageAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_5, grammarAccess.getHomePageAccess().getRightCurlyBracketKeyword_5());
 		}
 	)
 ;

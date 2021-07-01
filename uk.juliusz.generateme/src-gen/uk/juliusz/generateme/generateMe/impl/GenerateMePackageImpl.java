@@ -253,9 +253,20 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getHomePage_Introduction()
+  public EAttribute getHomePage_Content()
   {
     return (EAttribute)homePageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getHomePage_Introduction()
+  {
+    return (EAttribute)homePageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -432,6 +443,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     createEAttribute(configEClass, CONFIG__AUTHOR);
 
     homePageEClass = createEClass(HOME_PAGE);
+    createEAttribute(homePageEClass, HOME_PAGE__CONTENT);
     createEAttribute(homePageEClass, HOME_PAGE__INTRODUCTION);
 
     pagesEClass = createEClass(PAGES);
@@ -497,6 +509,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     initEAttribute(getConfig_Author(), ecorePackage.getEString(), "author", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(homePageEClass, HomePage.class, "HomePage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHomePage_Content(), ecorePackage.getEString(), "content", null, 0, 1, HomePage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getHomePage_Introduction(), ecorePackage.getEString(), "Introduction", null, 0, 1, HomePage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pagesEClass, Pages.class, "Pages", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
