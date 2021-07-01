@@ -29,6 +29,21 @@ public class GenerateMeGenerator extends AbstractGenerator {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     final GenerateMeProgram model = ((GenerateMeProgram) _head);
     fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.doGenerate(model));
+    Iterable<ContentPage> _iterable = IteratorExtensions.<ContentPage>toIterable(Iterators.<ContentPage>filter(resource.getAllContents(), ContentPage.class));
+    for (final ContentPage ContentPage : _iterable) {
+      String _name = ContentPage.getName();
+      String _plus = (_name + ".php");
+      fsa.generateFile(_plus, this.doGenerate(model));
+    }
+    Iterable<GalleryPage> _iterable_1 = IteratorExtensions.<GalleryPage>toIterable(Iterators.<GalleryPage>filter(resource.getAllContents(), GalleryPage.class));
+    for (final GalleryPage GalleryPage : _iterable_1) {
+      String _name_1 = GalleryPage.getName();
+      String _plus_1 = ("Gallery" + _name_1);
+      String _plus_2 = (_plus_1 + ".php");
+      fsa.generateFile(_plus_2, this.doGenerate(GalleryPage));
+    }
+    fsa.generateFile("index.php", this.doGenerate(model));
+    fsa.generateFile("contact.php", this.doGenerate(model));
   }
   
   public String deriveTargetFileNameFor(final GenerateMeProgram program, final Resource resource) {
@@ -38,6 +53,20 @@ public class GenerateMeGenerator extends AbstractGenerator {
       _xblockexpression = resource.getURI().appendFileExtension("txt").lastSegment();
     }
     return _xblockexpression;
+  }
+  
+  public String doGenerate(final GalleryPage gallery) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Program contains:");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("This is gallery: ");
+    String _name = gallery.getName();
+    _builder.append(_name, "\t\t");
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder.toString();
   }
   
   public String doGenerate(final GenerateMeProgram program) {
@@ -61,6 +90,10 @@ public class GenerateMeGenerator extends AbstractGenerator {
     int _size_2 = IteratorExtensions.size(Iterators.<ContentPage>filter(program.eAllContents(), ContentPage.class));
     _builder.append(_size_2, "\t\t");
     _builder.append(" content pages");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    String _introduction = program.getHomePage().getIntroduction();
+    _builder.append(_introduction, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder.toString();

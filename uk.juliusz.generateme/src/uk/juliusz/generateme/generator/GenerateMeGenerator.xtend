@@ -22,18 +22,41 @@ class GenerateMeGenerator extends AbstractGenerator {
 override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		val model = resource.contents.head as GenerateMeProgram
 		fsa.generateFile(deriveTargetFileNameFor(model, resource), model.doGenerate)
+		
+	for(ContentPage : resource.allContents.filter(ContentPage).toIterable){
+		fsa.generateFile(ContentPage.name+'.php', model.doGenerate)
+         }
+         
+    	for(GalleryPage : resource.allContents.filter(GalleryPage).toIterable){
+		fsa.generateFile('Gallery'+ GalleryPage.name+'.php', GalleryPage.doGenerate)
+         }
+         
+		fsa.generateFile('index.php', model.doGenerate)
+		fsa.generateFile('contact.php', model.doGenerate)
+	
 	}
+	
+
 	
 	def deriveTargetFileNameFor(GenerateMeProgram program, Resource resource) {
 		resource.URI.trimFileExtension().lastSegment
 		resource.URI.appendFileExtension('txt').lastSegment
 	}
 	
+
+
+	def String doGenerate(GalleryPage gallery) '''
+		Program contains:
+				This is gallery: «gallery.name» 
+
+	'''
+	
 	def String doGenerate(GenerateMeProgram program) '''
 		Program contains:
 				-«program.eAllContents.filter(GalleryPage).size» galleries
 				-«program.eAllContents.filter(HomePage).size» home pages
 				- «program.eAllContents.filter(ContentPage).size» content pages
+				«program.homePage.introduction»
 
 	'''
 	
