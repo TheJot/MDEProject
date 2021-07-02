@@ -116,11 +116,11 @@ public class GenerateMeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case GenerateMePackage.CONTACT_US_PAGE:
+      case GenerateMePackage.CONTACT_PAGE:
       {
-        ContactUsPage contactUsPage = (ContactUsPage)theEObject;
-        T result = caseContactUsPage(contactUsPage);
-        if (result == null) result = casePages(contactUsPage);
+        ContactPage contactPage = (ContactPage)theEObject;
+        T result = caseContactPage(contactPage);
+        if (result == null) result = casePages(contactPage);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -240,17 +240,17 @@ public class GenerateMeSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contact Us Page</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Contact Page</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contact Us Page</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Contact Page</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContactUsPage(ContactUsPage object)
+  public T caseContactPage(ContactPage object)
   {
     return null;
   }

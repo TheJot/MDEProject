@@ -71,7 +71,7 @@ public class GenerateMeFactoryImpl extends EFactoryImpl implements GenerateMeFac
       case GenerateMePackage.PAGES: return createPages();
       case GenerateMePackage.CONTENT_PAGE: return createContentPage();
       case GenerateMePackage.SECTION: return createSection();
-      case GenerateMePackage.CONTACT_US_PAGE: return createContactUsPage();
+      case GenerateMePackage.CONTACT_PAGE: return createContactPage();
       case GenerateMePackage.GALLERY_PAGE: return createGalleryPage();
       case GenerateMePackage.PHOTO: return createPhoto();
       default:
@@ -157,10 +157,10 @@ public class GenerateMeFactoryImpl extends EFactoryImpl implements GenerateMeFac
    * @generated
    */
   @Override
-  public ContactUsPage createContactUsPage()
+  public ContactPage createContactPage()
   {
-    ContactUsPageImpl contactUsPage = new ContactUsPageImpl();
-    return contactUsPage;
+    ContactPageImpl contactPage = new ContactPageImpl();
+    return contactPage;
   }
 
   /**

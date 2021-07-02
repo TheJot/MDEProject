@@ -78,13 +78,13 @@ public interface GenerateMeFactory extends EFactory
   Section createSection();
 
   /**
-   * Returns a new object of class '<em>Contact Us Page</em>'.
+   * Returns a new object of class '<em>Contact Page</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contact Us Page</em>'.
+   * @return a new object of class '<em>Contact Page</em>'.
    * @generated
    */
-  ContactUsPage createContactUsPage();
+  ContactPage createContactPage();
 
   /**
    * Returns a new object of class '<em>Gallery Page</em>'.

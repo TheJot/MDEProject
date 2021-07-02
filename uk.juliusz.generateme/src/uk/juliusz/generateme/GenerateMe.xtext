@@ -28,7 +28,7 @@ HomePage:
 Pages:
 	ContentPage |
 	GalleryPage |
-	ContactUsPage
+	ContactPage
 	
 ;
 
@@ -48,9 +48,11 @@ Section:
 	'}'
 ;
 
-ContactUsPage:
-	'ContactUsPage' name=ID '{'
-		'PageHeader' header=STRING
+ContactPage:
+	'ContactPage' name=ID '{'
+	'PageHeader' header=STRING
+	'SendFrom' from=STRING
+	'SendTo' to=STRING
 	'}'
 ;
 

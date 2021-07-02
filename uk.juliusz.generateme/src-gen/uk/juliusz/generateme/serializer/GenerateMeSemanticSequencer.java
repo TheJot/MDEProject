@@ -15,7 +15,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import uk.juliusz.generateme.generateMe.Config;
-import uk.juliusz.generateme.generateMe.ContactUsPage;
+import uk.juliusz.generateme.generateMe.ContactPage;
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GalleryPage;
 import uk.juliusz.generateme.generateMe.GenerateMePackage;
@@ -42,8 +42,8 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GenerateMePackage.CONFIG:
 				sequence_Config(context, (Config) semanticObject); 
 				return; 
-			case GenerateMePackage.CONTACT_US_PAGE:
-				sequence_ContactUsPage(context, (ContactUsPage) semanticObject); 
+			case GenerateMePackage.CONTACT_PAGE:
+				sequence_ContactPage(context, (ContactPage) semanticObject); 
 				return; 
 			case GenerateMePackage.CONTENT_PAGE:
 				sequence_ContentPage(context, (ContentPage) semanticObject); 
@@ -94,22 +94,28 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Pages returns ContactUsPage
-	 *     ContactUsPage returns ContactUsPage
+	 *     Pages returns ContactPage
+	 *     ContactPage returns ContactPage
 	 *
 	 * Constraint:
-	 *     (name=ID header=STRING)
+	 *     (name=ID header=STRING from=STRING to=STRING)
 	 */
-	protected void sequence_ContactUsPage(ISerializationContext context, ContactUsPage semanticObject) {
+	protected void sequence_ContactPage(ISerializationContext context, ContactPage semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PAGES__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PAGES__NAME));
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__HEADER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__HEADER));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__HEADER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__HEADER));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__FROM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__FROM));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__TO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_PAGE__TO));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getContactUsPageAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getContactUsPageAccess().getHeaderSTRINGTerminalRuleCall_4_0(), semanticObject.getHeader());
+		feeder.accept(grammarAccess.getContactPageAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getContactPageAccess().getHeaderSTRINGTerminalRuleCall_4_0(), semanticObject.getHeader());
+		feeder.accept(grammarAccess.getContactPageAccess().getFromSTRINGTerminalRuleCall_6_0(), semanticObject.getFrom());
+		feeder.accept(grammarAccess.getContactPageAccess().getToSTRINGTerminalRuleCall_8_0(), semanticObject.getTo());
 		feeder.finish();
 	}
 	

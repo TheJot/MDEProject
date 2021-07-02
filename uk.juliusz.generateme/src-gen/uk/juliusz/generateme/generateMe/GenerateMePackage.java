@@ -307,14 +307,14 @@ public interface GenerateMePackage extends EPackage
   int SECTION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl <em>Contact Us Page</em>}' class.
+   * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.ContactPageImpl <em>Contact Page</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl
-   * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getContactUsPage()
+   * @see uk.juliusz.generateme.generateMe.impl.ContactPageImpl
+   * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getContactPage()
    * @generated
    */
-  int CONTACT_US_PAGE = 6;
+  int CONTACT_PAGE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -323,7 +323,7 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTACT_US_PAGE__NAME = PAGES__NAME;
+  int CONTACT_PAGE__NAME = PAGES__NAME;
 
   /**
    * The feature id for the '<em><b>Header</b></em>' attribute.
@@ -332,16 +332,34 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTACT_US_PAGE__HEADER = PAGES_FEATURE_COUNT + 0;
+  int CONTACT_PAGE__HEADER = PAGES_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Contact Us Page</em>' class.
+   * The feature id for the '<em><b>From</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTACT_US_PAGE_FEATURE_COUNT = PAGES_FEATURE_COUNT + 1;
+  int CONTACT_PAGE__FROM = PAGES_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>To</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTACT_PAGE__TO = PAGES_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Contact Page</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTACT_PAGE_FEATURE_COUNT = PAGES_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.GalleryPageImpl <em>Gallery Page</em>}' class.
@@ -642,25 +660,47 @@ public interface GenerateMePackage extends EPackage
   EAttribute getSection_Content();
 
   /**
-   * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.ContactUsPage <em>Contact Us Page</em>}'.
+   * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.ContactPage <em>Contact Page</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Contact Us Page</em>'.
-   * @see uk.juliusz.generateme.generateMe.ContactUsPage
+   * @return the meta object for class '<em>Contact Page</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContactPage
    * @generated
    */
-  EClass getContactUsPage();
+  EClass getContactPage();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactUsPage#getHeader <em>Header</em>}'.
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactPage#getHeader <em>Header</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Header</em>'.
-   * @see uk.juliusz.generateme.generateMe.ContactUsPage#getHeader()
-   * @see #getContactUsPage()
+   * @see uk.juliusz.generateme.generateMe.ContactPage#getHeader()
+   * @see #getContactPage()
    * @generated
    */
-  EAttribute getContactUsPage_Header();
+  EAttribute getContactPage_Header();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactPage#getFrom <em>From</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>From</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContactPage#getFrom()
+   * @see #getContactPage()
+   * @generated
+   */
+  EAttribute getContactPage_From();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactPage#getTo <em>To</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>To</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContactPage#getTo()
+   * @see #getContactPage()
+   * @generated
+   */
+  EAttribute getContactPage_To();
 
   /**
    * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.GalleryPage <em>Gallery Page</em>}'.
@@ -922,14 +962,14 @@ public interface GenerateMePackage extends EPackage
     EAttribute SECTION__CONTENT = eINSTANCE.getSection_Content();
 
     /**
-     * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl <em>Contact Us Page</em>}' class.
+     * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.ContactPageImpl <em>Contact Page</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl
-     * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getContactUsPage()
+     * @see uk.juliusz.generateme.generateMe.impl.ContactPageImpl
+     * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getContactPage()
      * @generated
      */
-    EClass CONTACT_US_PAGE = eINSTANCE.getContactUsPage();
+    EClass CONTACT_PAGE = eINSTANCE.getContactPage();
 
     /**
      * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
@@ -937,7 +977,23 @@ public interface GenerateMePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTACT_US_PAGE__HEADER = eINSTANCE.getContactUsPage_Header();
+    EAttribute CONTACT_PAGE__HEADER = eINSTANCE.getContactPage_Header();
+
+    /**
+     * The meta object literal for the '<em><b>From</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTACT_PAGE__FROM = eINSTANCE.getContactPage_From();
+
+    /**
+     * The meta object literal for the '<em><b>To</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTACT_PAGE__TO = eINSTANCE.getContactPage_To();
 
     /**
      * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.GalleryPageImpl <em>Gallery Page</em>}' class.

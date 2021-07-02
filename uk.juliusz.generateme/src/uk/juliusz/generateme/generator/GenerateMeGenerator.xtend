@@ -15,6 +15,7 @@ import uk.juliusz.generateme.generateMe.Config
 import uk.juliusz.generateme.generateMe.Photo
 import uk.juliusz.generateme.generateMe.Pages
 import uk.juliusz.generateme.generateMe.Section
+import uk.juliusz.generateme.generateMe.ContactPage
 
 /**
  * Generates code from your model files on save.
@@ -35,12 +36,12 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	
 	 
 	for(ContentPage : resource.allContents.filter(ContentPage).toIterable){
-		fsa.generateFile(ContentPage.name+'.php', ContentPage.doGenerate)
+		fsa.generateFile(ContentPage.name.toLowerCase+'.php', ContentPage.doGenerate)
 
          }
          
     	for(GalleryPage : resource.allContents.filter(GalleryPage).toIterable){
-		fsa.generateFile(GalleryPage.name+'.php', GalleryPage.doGenerate)
+		fsa.generateFile(GalleryPage.name.toLowerCase +'.php', GalleryPage.doGenerate)
          }
 
 	for(Config : resource.allContents.filter(Config).toIterable){
@@ -50,8 +51,11 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	for(HomePage : resource.allContents.filter(HomePage).toIterable){
 		fsa.generateFile('index.php', HomePage.doGenerate)
          }
+         
+    for(ContactPage : resource.allContents.filter(ContactPage).toIterable){
+		fsa.generateFile(ContactPage.name.toLowerCase+'.php', ContactPage.doGenerate)
+         }
 
-		fsa.generateFile('contact.php', model.doGenerate)
 
 	}
 	
@@ -69,15 +73,6 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 		resource.URI.appendFileExtension('txt').lastSegment
 	}
 	
-
-	def String doGenerate(Pages page) '''
-		Program contains:
-				This is gallery: «page.name» 
-				«FOR i: 1..5»
-				«println("Loops twice loop "+i)»
-				«ENDFOR»
-
-	'''
 
 	def String doGenerate(GalleryPage gallery) '''
 <?php
@@ -103,7 +98,7 @@ include('header.php');
         <div class="col-sm-8 ">
             <br>
             <center>
-		«gallery.photos.map[generateJavaStatement()].join('\n')»
+		«gallery.photos.map[generateObject()].join('\n')»
             </center>
 
         </div>
@@ -185,7 +180,7 @@ include('header.php');
         <div class="col-sm-8 ">
             <br>
             <center>
-		«page.section.map[generateJavaStatement()].join('\n')»
+		«page.section.map[generateObject()].join('\n')»
             </center>
 
         </div>
@@ -203,21 +198,130 @@ include('header.php');
 	
 	
 	
-	
 	def String doGenerate(GenerateMeProgram program) '''
-		«program.pages.map[generateJavaStatement()].join('\n')»
+	<li><a href="index.php">Home</a></li>
+		«program.pages.map[generateObject()].join('\n')»
 
 	'''
 	
-	dispatch def String generateJavaStatement(Pages page) '''<li><a href="«page.getName».php">«page.getName.toFirstUpper»</a></li>'''
-	dispatch def String generateJavaStatement(GalleryPage gallerypage) '''<li><a href="«gallerypage.getName».php">«gallerypage.getName.toFirstUpper»</a></li>'''
-	dispatch def String generateJavaStatement(Photo photo) '''<b>«photo.getName»</b><br><img src="images/«photo.fileName»" alt="«photo.getName»" width="500" height="600"><br><i> «photo.description»</i><br><br><br>'''
-	dispatch def String generateJavaStatement(Section section) '''<h2>«section.title»</h2><h4>«section.content»</h4><br><br><br>'''
+	dispatch def String generateObject(Pages page) '''<li><a href="«page.getName.toLowerCase».php">«page.getName.toFirstUpper»</a></li>'''
+	dispatch def String generateObject(GalleryPage gallerypage) '''<li><a href="«gallerypage.getName».php">«gallerypage.getName.toFirstUpper»</a></li>'''
+	dispatch def String generateObject(Photo photo) '''<b>«photo.getName»</b><br><img src="images/«photo.fileName»" alt="«photo.getName»" width="500" height="600"><br><i> «photo.description»</i><br><br><br>'''
+	dispatch def String generateObject(Section section) '''<h2>«section.title»</h2><h4>«section.content»</h4><br><br><br>'''
 	
 	
 	
 	
 	
+	
+			def String doGenerate(ContactPage contactpage) '''
+
+<?php
+include('header.php');
+?>
+
+<?php
+$error ="";
+$success = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $From = "«contactpage.from»";
+    $To = "«contactpage.to»";
+    $Subject = "Contact form";
+    $Name = Trim(stripslashes($_POST['Name']));
+    $Tel = Trim(stripslashes($_POST['Phone']));
+    $Email = Trim(stripslashes($_POST['Email']));
+    $Message = Trim(stripslashes($_POST['Message']));
+
+
+// prepare email body text
+    $Body = "";
+    $Body .= "Name: ";
+    $Body .= $Name;
+    $Body .= "\n";
+    $Body .= "Tel: ";
+    $Body .= $Tel;
+    $Body .= "\n";
+    $Body .= "Email: ";
+    $Body .= $Email;
+    $Body .= "\n";
+    $Body .= "Message: ";
+    $Body .= $Message;
+    $Body .= "\n";
+
+    $send = mail($To, $Subject, $Body, "From: <$From>");
+
+    if ($send) {
+        $success = "Message sent!";
+    } else {
+        $error ="Message not sent due to an error, please complete the form again.";
+    }
+}
+
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h1>«contactpage.header»</h1></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-4 "></div>
+        <div class="col-sm-4 ">
+            <br>
+            <b><center><font color="red"><?php echo $error ?></font> </b></center>
+            <b><center><font color="green"><?php echo $success ?></font> </center></b>
+
+
+
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <div class="form-group">
+                    <label for="TitleLabel">Name</label>
+                    <input type="text" name="Name" class="form-control" value="" placeholder="Provide your name...">
+                </div>
+                <div class="form-group">
+                    <label for="TitleLabel">E-mail address</label>
+                    <input type="text" name="Email" class="form-control" value="" placeholder="Provide your e-mail address...">
+                </div>
+                <div class="form-group">
+                    <label for="TitleLabel">Phone number</label>
+                    <input type="text" name="Phone" class="form-control" value="" placeholder="Provide your phone number...">
+                </div>
+                <div class="form-group">
+                    <label for="DescriptionLabel">Message</label>
+                    <textarea type="text" name="Message" class="form-control" placeholder="Enter your message..." value="" rows="8"></textarea>
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+            </form>
+
+
+
+
+        </div>
+        <div class="col-sm-4 "></div>
+    </div>
+
+    <br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+	'''
 	
 	
 	

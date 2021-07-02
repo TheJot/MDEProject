@@ -12,13 +12,12 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import uk.juliusz.generateme.generateMe.Config;
+import uk.juliusz.generateme.generateMe.ContactPage;
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GalleryPage;
 import uk.juliusz.generateme.generateMe.GenerateMeProgram;
@@ -41,14 +40,14 @@ public class GenerateMeGenerator extends AbstractGenerator {
     fsa.generateFile("menu.php", this.doGenerate(model));
     Iterable<ContentPage> _iterable = IteratorExtensions.<ContentPage>toIterable(Iterators.<ContentPage>filter(resource.getAllContents(), ContentPage.class));
     for (final ContentPage ContentPage : _iterable) {
-      String _name = ContentPage.getName();
-      String _plus = (_name + ".php");
+      String _lowerCase = ContentPage.getName().toLowerCase();
+      String _plus = (_lowerCase + ".php");
       fsa.generateFile(_plus, this.doGenerate(ContentPage));
     }
     Iterable<GalleryPage> _iterable_1 = IteratorExtensions.<GalleryPage>toIterable(Iterators.<GalleryPage>filter(resource.getAllContents(), GalleryPage.class));
     for (final GalleryPage GalleryPage : _iterable_1) {
-      String _name_1 = GalleryPage.getName();
-      String _plus_1 = (_name_1 + ".php");
+      String _lowerCase_1 = GalleryPage.getName().toLowerCase();
+      String _plus_1 = (_lowerCase_1 + ".php");
       fsa.generateFile(_plus_1, this.doGenerate(GalleryPage));
     }
     Iterable<Config> _iterable_2 = IteratorExtensions.<Config>toIterable(Iterators.<Config>filter(resource.getAllContents(), Config.class));
@@ -59,7 +58,12 @@ public class GenerateMeGenerator extends AbstractGenerator {
     for (final HomePage HomePage : _iterable_3) {
       fsa.generateFile("index.php", this.doGenerate(HomePage));
     }
-    fsa.generateFile("contact.php", this.doGenerate(model));
+    Iterable<ContactPage> _iterable_4 = IteratorExtensions.<ContactPage>toIterable(Iterators.<ContactPage>filter(resource.getAllContents(), ContactPage.class));
+    for (final ContactPage ContactPage : _iterable_4) {
+      String _lowerCase_2 = ContactPage.getName().toLowerCase();
+      String _plus_2 = (_lowerCase_2 + ".php");
+      fsa.generateFile(_plus_2, this.doGenerate(ContactPage));
+    }
   }
   
   public void getLinks(final Resource resource) {
@@ -76,29 +80,6 @@ public class GenerateMeGenerator extends AbstractGenerator {
       _xblockexpression = resource.getURI().appendFileExtension("txt").lastSegment();
     }
     return _xblockexpression;
-  }
-  
-  public String doGenerate(final Pages page) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Program contains:");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("This is gallery: ");
-    String _name = page.getName();
-    _builder.append(_name, "\t\t");
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
-    {
-      IntegerRange _upTo = new IntegerRange(1, 5);
-      for(final Integer i : _upTo) {
-        _builder.append("\t\t");
-        String _println = InputOutput.<String>println(("Loops twice loop " + i));
-        _builder.append(_println, "\t\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.newLine();
-    return _builder.toString();
   }
   
   public String doGenerate(final GalleryPage gallery) {
@@ -156,7 +137,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     final Function1<Photo, String> _function = (Photo it) -> {
-      return this.generateJavaStatement(it);
+      return this.generateObject(it);
     };
     String _join = IterableExtensions.join(ListExtensions.<Photo, String>map(gallery.getPhotos(), _function), "\n");
     _builder.append(_join, "\t\t");
@@ -327,7 +308,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t\t");
     final Function1<Section, String> _function = (Section it) -> {
-      return this.generateJavaStatement(it);
+      return this.generateObject(it);
     };
     String _join = IterableExtensions.join(ListExtensions.<Section, String>map(page.getSection(), _function), "\n");
     _builder.append(_join, "\t\t");
@@ -363,21 +344,24 @@ public class GenerateMeGenerator extends AbstractGenerator {
   
   public String doGenerate(final GenerateMeProgram program) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<li><a href=\"index.php\">Home</a></li>");
+    _builder.newLine();
+    _builder.append("\t");
     final Function1<Pages, String> _function = (Pages it) -> {
-      return this.generateJavaStatement(it);
+      return this.generateObject(it);
     };
     String _join = IterableExtensions.join(ListExtensions.<Pages, String>map(program.getPages(), _function), "\n");
-    _builder.append(_join);
+    _builder.append(_join, "\t");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     return _builder.toString();
   }
   
-  protected String _generateJavaStatement(final Pages page) {
+  protected String _generateObject(final Pages page) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<li><a href=\"");
-    String _name = page.getName();
-    _builder.append(_name);
+    String _lowerCase = page.getName().toLowerCase();
+    _builder.append(_lowerCase);
     _builder.append(".php\">");
     String _firstUpper = StringExtensions.toFirstUpper(page.getName());
     _builder.append(_firstUpper);
@@ -385,7 +369,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  protected String _generateJavaStatement(final GalleryPage gallerypage) {
+  protected String _generateObject(final GalleryPage gallerypage) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<li><a href=\"");
     String _name = gallerypage.getName();
@@ -397,7 +381,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  protected String _generateJavaStatement(final Photo photo) {
+  protected String _generateObject(final Photo photo) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<b>");
     String _name = photo.getName();
@@ -415,7 +399,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  protected String _generateJavaStatement(final Section section) {
+  protected String _generateObject(final Section section) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<h2>");
     String _title = section.getTitle();
@@ -424,6 +408,264 @@ public class GenerateMeGenerator extends AbstractGenerator {
     String _content = section.getContent();
     _builder.append(_content);
     _builder.append("</h4><br><br><br>");
+    return _builder.toString();
+  }
+  
+  public String doGenerate(final ContactPage contactpage) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.newLine();
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("include(\'header.php\');");
+    _builder.newLine();
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("$error =\"\";");
+    _builder.newLine();
+    _builder.append("$success = \"\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("if ($_SERVER[\'REQUEST_METHOD\'] == \'POST\') {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$From = \"");
+    String _from = contactpage.getFrom();
+    _builder.append(_from, "    ");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("$To = \"");
+    String _to = contactpage.getTo();
+    _builder.append(_to, "    ");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    _builder.append("$Subject = \"Contact form\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Name = Trim(stripslashes($_POST[\'Name\']));");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Tel = Trim(stripslashes($_POST[\'Phone\']));");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Email = Trim(stripslashes($_POST[\'Email\']));");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Message = Trim(stripslashes($_POST[\'Message\']));");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("// prepare email body text");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body = \"\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"Name: \";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= $Name;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"\\n\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"Tel: \";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= $Tel;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"\\n\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"Email: \";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= $Email;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"\\n\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"Message: \";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= $Message;");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$Body .= \"\\n\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("$send = mail($To, $Subject, $Body, \"From: <$From>\");");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("if ($send) {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("$success = \"Message sent!\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("} else {");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("$error =\"Message not sent due to an error, please complete the form again.\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<div class=\"row\"><br><br><br><br><br><br><br></div>");
+    _builder.newLine();
+    _builder.append("<div class=\"container\">");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-6 title\"> <center><h1>");
+    String _header = contactpage.getHeader();
+    _builder.append(_header, "        ");
+    _builder.append("</h1></center></div>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-4 \"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-4 \">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<b><center><font color=\"red\"><?php echo $error ?></font> </b></center>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<b><center><font color=\"green\"><?php echo $success ?></font> </center></b>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<form method=\"post\" action=\"<?php echo htmlspecialchars($_SERVER[\"PHP_SELF\"]);?>\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<label for=\"TitleLabel\">Name</label>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<input type=\"text\" name=\"Name\" class=\"form-control\" value=\"\" placeholder=\"Provide your name...\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<label for=\"TitleLabel\">E-mail address</label>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<input type=\"text\" name=\"Email\" class=\"form-control\" value=\"\" placeholder=\"Provide your e-mail address...\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<label for=\"TitleLabel\">Phone number</label>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<input type=\"text\" name=\"Phone\" class=\"form-control\" value=\"\" placeholder=\"Provide your phone number...\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<label for=\"DescriptionLabel\">Message</label>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<textarea type=\"text\" name=\"Message\" class=\"form-control\" placeholder=\"Enter your message...\" value=\"\" rows=\"8\"></textarea>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<input class=\"btn btn-primary\" type=\"submit\" name=\"submit\" value=\"Submit\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("</form>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-4 \"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<br><br><br><br><br><br>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
     return _builder.toString();
   }
   
@@ -621,15 +863,15 @@ public class GenerateMeGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
-  public String generateJavaStatement(final EObject gallerypage) {
+  public String generateObject(final EObject gallerypage) {
     if (gallerypage instanceof GalleryPage) {
-      return _generateJavaStatement((GalleryPage)gallerypage);
+      return _generateObject((GalleryPage)gallerypage);
     } else if (gallerypage instanceof Pages) {
-      return _generateJavaStatement((Pages)gallerypage);
+      return _generateObject((Pages)gallerypage);
     } else if (gallerypage instanceof Photo) {
-      return _generateJavaStatement((Photo)gallerypage);
+      return _generateObject((Photo)gallerypage);
     } else if (gallerypage instanceof Section) {
-      return _generateJavaStatement((Section)gallerypage);
+      return _generateObject((Section)gallerypage);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(gallerypage).toString());

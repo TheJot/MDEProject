@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import uk.juliusz.generateme.generateMe.Config;
-import uk.juliusz.generateme.generateMe.ContactUsPage;
+import uk.juliusz.generateme.generateMe.ContactPage;
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GalleryPage;
 import uk.juliusz.generateme.generateMe.GenerateMeFactory;
@@ -77,7 +77,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass contactUsPageEClass = null;
+  private EClass contactPageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -382,9 +382,9 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EClass getContactUsPage()
+  public EClass getContactPage()
   {
-    return contactUsPageEClass;
+    return contactPageEClass;
   }
 
   /**
@@ -393,9 +393,31 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getContactUsPage_Header()
+  public EAttribute getContactPage_Header()
   {
-    return (EAttribute)contactUsPageEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)contactPageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContactPage_From()
+  {
+    return (EAttribute)contactPageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContactPage_To()
+  {
+    return (EAttribute)contactPageEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -521,8 +543,10 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     createEAttribute(sectionEClass, SECTION__TITLE);
     createEAttribute(sectionEClass, SECTION__CONTENT);
 
-    contactUsPageEClass = createEClass(CONTACT_US_PAGE);
-    createEAttribute(contactUsPageEClass, CONTACT_US_PAGE__HEADER);
+    contactPageEClass = createEClass(CONTACT_PAGE);
+    createEAttribute(contactPageEClass, CONTACT_PAGE__HEADER);
+    createEAttribute(contactPageEClass, CONTACT_PAGE__FROM);
+    createEAttribute(contactPageEClass, CONTACT_PAGE__TO);
 
     galleryPageEClass = createEClass(GALLERY_PAGE);
     createEReference(galleryPageEClass, GALLERY_PAGE__PHOTOS);
@@ -563,7 +587,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
 
     // Add supertypes to classes
     contentPageEClass.getESuperTypes().add(this.getPages());
-    contactUsPageEClass.getESuperTypes().add(this.getPages());
+    contactPageEClass.getESuperTypes().add(this.getPages());
     galleryPageEClass.getESuperTypes().add(this.getPages());
 
     // Initialize classes and features; add operations and parameters
@@ -593,8 +617,10 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSection_Content(), ecorePackage.getEString(), "content", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(contactUsPageEClass, ContactUsPage.class, "ContactUsPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContactUsPage_Header(), ecorePackage.getEString(), "header", null, 0, 1, ContactUsPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contactPageEClass, ContactPage.class, "ContactPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContactPage_Header(), ecorePackage.getEString(), "header", null, 0, 1, ContactPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContactPage_From(), ecorePackage.getEString(), "from", null, 0, 1, ContactPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContactPage_To(), ecorePackage.getEString(), "to", null, 0, 1, ContactPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(galleryPageEClass, GalleryPage.class, "GalleryPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGalleryPage_Photos(), this.getPhoto(), null, "photos", null, 0, -1, GalleryPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

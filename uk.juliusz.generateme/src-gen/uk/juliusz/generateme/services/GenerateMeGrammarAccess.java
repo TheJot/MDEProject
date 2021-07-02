@@ -159,13 +159,13 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cContentPageParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cGalleryPageParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cContactUsPageParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cContactPageParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Pages:
-		//	ContentPage | GalleryPage | ContactUsPage;
+		//	ContentPage | GalleryPage | ContactPage;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ContentPage | GalleryPage | ContactUsPage
+		//ContentPage | GalleryPage | ContactPage
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ContentPage
@@ -174,8 +174,8 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//GalleryPage
 		public RuleCall getGalleryPageParserRuleCall_1() { return cGalleryPageParserRuleCall_1; }
 		
-		//ContactUsPage
-		public RuleCall getContactUsPageParserRuleCall_2() { return cContactUsPageParserRuleCall_2; }
+		//ContactPage
+		public RuleCall getContactPageParserRuleCall_2() { return cContactPageParserRuleCall_2; }
 	}
 	public class ContentPageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.ContentPage");
@@ -289,29 +289,37 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
-	public class ContactUsPageElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.ContactUsPage");
+	public class ContactPageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.ContactPage");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cContactUsPageKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cContactPageKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cPageHeaderKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cHeaderAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cHeaderSTRINGTerminalRuleCall_4_0 = (RuleCall)cHeaderAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSendFromKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFromAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cFromSTRINGTerminalRuleCall_6_0 = (RuleCall)cFromAssignment_6.eContents().get(0);
+		private final Keyword cSendToKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cToAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cToSTRINGTerminalRuleCall_8_0 = (RuleCall)cToAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		//ContactUsPage:
-		//	'ContactUsPage' name=ID '{'
+		//ContactPage:
+		//	'ContactPage' name=ID '{'
 		//	'PageHeader' header=STRING
+		//	'SendFrom' from=STRING
+		//	'SendTo' to=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ContactUsPage' name=ID '{' 'PageHeader' header=STRING '}'
+		//'ContactPage' name=ID '{' 'PageHeader' header=STRING 'SendFrom' from=STRING 'SendTo' to=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'ContactUsPage'
-		public Keyword getContactUsPageKeyword_0() { return cContactUsPageKeyword_0; }
+		//'ContactPage'
+		public Keyword getContactPageKeyword_0() { return cContactPageKeyword_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -331,8 +339,26 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getHeaderSTRINGTerminalRuleCall_4_0() { return cHeaderSTRINGTerminalRuleCall_4_0; }
 		
+		//'SendFrom'
+		public Keyword getSendFromKeyword_5() { return cSendFromKeyword_5; }
+		
+		//from=STRING
+		public Assignment getFromAssignment_6() { return cFromAssignment_6; }
+		
+		//STRING
+		public RuleCall getFromSTRINGTerminalRuleCall_6_0() { return cFromSTRINGTerminalRuleCall_6_0; }
+		
+		//'SendTo'
+		public Keyword getSendToKeyword_7() { return cSendToKeyword_7; }
+		
+		//to=STRING
+		public Assignment getToAssignment_8() { return cToAssignment_8; }
+		
+		//STRING
+		public RuleCall getToSTRINGTerminalRuleCall_8_0() { return cToSTRINGTerminalRuleCall_8_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class GalleryPageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.GalleryPage");
@@ -441,7 +467,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	private final PagesElements pPages;
 	private final ContentPageElements pContentPage;
 	private final SectionElements pSection;
-	private final ContactUsPageElements pContactUsPage;
+	private final ContactPageElements pContactPage;
 	private final GalleryPageElements pGalleryPage;
 	private final PhotoElements pPhoto;
 	
@@ -460,7 +486,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPages = new PagesElements();
 		this.pContentPage = new ContentPageElements();
 		this.pSection = new SectionElements();
-		this.pContactUsPage = new ContactUsPageElements();
+		this.pContactPage = new ContactPageElements();
 		this.pGalleryPage = new GalleryPageElements();
 		this.pPhoto = new PhotoElements();
 	}
@@ -530,7 +556,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Pages:
-	//	ContentPage | GalleryPage | ContactUsPage;
+	//	ContentPage | GalleryPage | ContactPage;
 	public PagesElements getPagesAccess() {
 		return pPages;
 	}
@@ -565,16 +591,18 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		return getSectionAccess().getRule();
 	}
 	
-	//ContactUsPage:
-	//	'ContactUsPage' name=ID '{'
+	//ContactPage:
+	//	'ContactPage' name=ID '{'
 	//	'PageHeader' header=STRING
+	//	'SendFrom' from=STRING
+	//	'SendTo' to=STRING
 	//	'}';
-	public ContactUsPageElements getContactUsPageAccess() {
-		return pContactUsPage;
+	public ContactPageElements getContactPageAccess() {
+		return pContactPage;
 	}
 	
-	public ParserRule getContactUsPageRule() {
-		return getContactUsPageAccess().getRule();
+	public ParserRule getContactPageRule() {
+		return getContactPageAccess().getRule();
 	}
 	
 	//GalleryPage:

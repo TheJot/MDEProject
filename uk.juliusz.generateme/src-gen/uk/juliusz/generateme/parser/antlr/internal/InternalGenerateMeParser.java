@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BusinessName'", "'Sender'", "'Author'", "'HomePage{'", "'PageHeader'", "'Introduction'", "'}'", "'ContentPage'", "'{'", "'Section'", "'Title'", "'Content'", "'ContactUsPage'", "'GalleryPage'", "'Photo'", "'PhotoDescription'", "'PhotoFileName'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'BusinessName'", "'Sender'", "'Author'", "'HomePage{'", "'PageHeader'", "'Introduction'", "'}'", "'ContentPage'", "'{'", "'Section'", "'Title'", "'Content'", "'ContactPage'", "'SendFrom'", "'SendTo'", "'GalleryPage'", "'Photo'", "'PhotoDescription'", "'PhotoFileName'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -40,7 +40,9 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
     public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=6;
+    public static final int T__29=29;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -214,7 +216,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==18||(LA1_0>=23 && LA1_0<=24)) ) {
+                if ( (LA1_0==18||LA1_0==23||LA1_0==26) ) {
                     alt1=1;
                 }
 
@@ -634,7 +636,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePages"
-    // InternalGenerateMe.g:303:1: rulePages returns [EObject current=null] : (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactUsPage_2= ruleContactUsPage ) ;
+    // InternalGenerateMe.g:303:1: rulePages returns [EObject current=null] : (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactPage_2= ruleContactPage ) ;
     public final EObject rulePages() throws RecognitionException {
         EObject current = null;
 
@@ -642,17 +644,17 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
         EObject this_GalleryPage_1 = null;
 
-        EObject this_ContactUsPage_2 = null;
+        EObject this_ContactPage_2 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalGenerateMe.g:309:2: ( (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactUsPage_2= ruleContactUsPage ) )
-            // InternalGenerateMe.g:310:2: (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactUsPage_2= ruleContactUsPage )
+            // InternalGenerateMe.g:309:2: ( (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactPage_2= ruleContactPage ) )
+            // InternalGenerateMe.g:310:2: (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactPage_2= ruleContactPage )
             {
-            // InternalGenerateMe.g:310:2: (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactUsPage_2= ruleContactUsPage )
+            // InternalGenerateMe.g:310:2: (this_ContentPage_0= ruleContentPage | this_GalleryPage_1= ruleGalleryPage | this_ContactPage_2= ruleContactPage )
             int alt2=3;
             switch ( input.LA(1) ) {
             case 18:
@@ -660,7 +662,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
                 alt2=1;
                 }
                 break;
-            case 24:
+            case 26:
                 {
                 alt2=2;
                 }
@@ -715,18 +717,18 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalGenerateMe.g:329:3: this_ContactUsPage_2= ruleContactUsPage
+                    // InternalGenerateMe.g:329:3: this_ContactPage_2= ruleContactPage
                     {
 
-                    			newCompositeNode(grammarAccess.getPagesAccess().getContactUsPageParserRuleCall_2());
+                    			newCompositeNode(grammarAccess.getPagesAccess().getContactPageParserRuleCall_2());
                     		
                     pushFollow(FOLLOW_2);
-                    this_ContactUsPage_2=ruleContactUsPage();
+                    this_ContactPage_2=ruleContactPage();
 
                     state._fsp--;
 
 
-                    			current = this_ContactUsPage_2;
+                    			current = this_ContactPage_2;
                     			afterParserOrEnumRuleCall();
                     		
 
@@ -1133,25 +1135,25 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSection"
 
 
-    // $ANTLR start "entryRuleContactUsPage"
-    // InternalGenerateMe.g:524:1: entryRuleContactUsPage returns [EObject current=null] : iv_ruleContactUsPage= ruleContactUsPage EOF ;
-    public final EObject entryRuleContactUsPage() throws RecognitionException {
+    // $ANTLR start "entryRuleContactPage"
+    // InternalGenerateMe.g:524:1: entryRuleContactPage returns [EObject current=null] : iv_ruleContactPage= ruleContactPage EOF ;
+    public final EObject entryRuleContactPage() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleContactUsPage = null;
+        EObject iv_ruleContactPage = null;
 
 
         try {
-            // InternalGenerateMe.g:524:54: (iv_ruleContactUsPage= ruleContactUsPage EOF )
-            // InternalGenerateMe.g:525:2: iv_ruleContactUsPage= ruleContactUsPage EOF
+            // InternalGenerateMe.g:524:52: (iv_ruleContactPage= ruleContactPage EOF )
+            // InternalGenerateMe.g:525:2: iv_ruleContactPage= ruleContactPage EOF
             {
-             newCompositeNode(grammarAccess.getContactUsPageRule()); 
+             newCompositeNode(grammarAccess.getContactPageRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleContactUsPage=ruleContactUsPage();
+            iv_ruleContactPage=ruleContactPage();
 
             state._fsp--;
 
-             current =iv_ruleContactUsPage; 
+             current =iv_ruleContactPage; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -1166,12 +1168,12 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleContactUsPage"
+    // $ANTLR end "entryRuleContactPage"
 
 
-    // $ANTLR start "ruleContactUsPage"
-    // InternalGenerateMe.g:531:1: ruleContactUsPage returns [EObject current=null] : (otherlv_0= 'ContactUsPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= '}' ) ;
-    public final EObject ruleContactUsPage() throws RecognitionException {
+    // $ANTLR start "ruleContactPage"
+    // InternalGenerateMe.g:531:1: ruleContactPage returns [EObject current=null] : (otherlv_0= 'ContactPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= 'SendFrom' ( (lv_from_6_0= RULE_STRING ) ) otherlv_7= 'SendTo' ( (lv_to_8_0= RULE_STRING ) ) otherlv_9= '}' ) ;
+    public final EObject ruleContactPage() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
@@ -1180,20 +1182,24 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
         Token otherlv_3=null;
         Token lv_header_4_0=null;
         Token otherlv_5=null;
+        Token lv_from_6_0=null;
+        Token otherlv_7=null;
+        Token lv_to_8_0=null;
+        Token otherlv_9=null;
 
 
         	enterRule();
 
         try {
-            // InternalGenerateMe.g:537:2: ( (otherlv_0= 'ContactUsPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= '}' ) )
-            // InternalGenerateMe.g:538:2: (otherlv_0= 'ContactUsPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= '}' )
+            // InternalGenerateMe.g:537:2: ( (otherlv_0= 'ContactPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= 'SendFrom' ( (lv_from_6_0= RULE_STRING ) ) otherlv_7= 'SendTo' ( (lv_to_8_0= RULE_STRING ) ) otherlv_9= '}' ) )
+            // InternalGenerateMe.g:538:2: (otherlv_0= 'ContactPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= 'SendFrom' ( (lv_from_6_0= RULE_STRING ) ) otherlv_7= 'SendTo' ( (lv_to_8_0= RULE_STRING ) ) otherlv_9= '}' )
             {
-            // InternalGenerateMe.g:538:2: (otherlv_0= 'ContactUsPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= '}' )
-            // InternalGenerateMe.g:539:3: otherlv_0= 'ContactUsPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= '}'
+            // InternalGenerateMe.g:538:2: (otherlv_0= 'ContactPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= 'SendFrom' ( (lv_from_6_0= RULE_STRING ) ) otherlv_7= 'SendTo' ( (lv_to_8_0= RULE_STRING ) ) otherlv_9= '}' )
+            // InternalGenerateMe.g:539:3: otherlv_0= 'ContactPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PageHeader' ( (lv_header_4_0= RULE_STRING ) ) otherlv_5= 'SendFrom' ( (lv_from_6_0= RULE_STRING ) ) otherlv_7= 'SendTo' ( (lv_to_8_0= RULE_STRING ) ) otherlv_9= '}'
             {
             otherlv_0=(Token)match(input,23,FOLLOW_11); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getContactUsPageAccess().getContactUsPageKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getContactPageAccess().getContactPageKeyword_0());
             		
             // InternalGenerateMe.g:543:3: ( (lv_name_1_0= RULE_ID ) )
             // InternalGenerateMe.g:544:4: (lv_name_1_0= RULE_ID )
@@ -1203,11 +1209,11 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getContactUsPageAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_1_0, grammarAccess.getContactPageAccess().getNameIDTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getContactUsPageRule());
+            						current = createModelElement(grammarAccess.getContactPageRule());
             					}
             					setWithLastConsumed(
             						current,
@@ -1223,11 +1229,11 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
             otherlv_2=(Token)match(input,19,FOLLOW_8); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getContactUsPageAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getContactPageAccess().getLeftCurlyBracketKeyword_2());
             		
             otherlv_3=(Token)match(input,15,FOLLOW_5); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getContactUsPageAccess().getPageHeaderKeyword_3());
+            			newLeafNode(otherlv_3, grammarAccess.getContactPageAccess().getPageHeaderKeyword_3());
             		
             // InternalGenerateMe.g:569:3: ( (lv_header_4_0= RULE_STRING ) )
             // InternalGenerateMe.g:570:4: (lv_header_4_0= RULE_STRING )
@@ -1235,13 +1241,13 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
             // InternalGenerateMe.g:570:4: (lv_header_4_0= RULE_STRING )
             // InternalGenerateMe.g:571:5: lv_header_4_0= RULE_STRING
             {
-            lv_header_4_0=(Token)match(input,RULE_STRING,FOLLOW_10); 
+            lv_header_4_0=(Token)match(input,RULE_STRING,FOLLOW_16); 
 
-            					newLeafNode(lv_header_4_0, grammarAccess.getContactUsPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
+            					newLeafNode(lv_header_4_0, grammarAccess.getContactPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
             				
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getContactUsPageRule());
+            						current = createModelElement(grammarAccess.getContactPageRule());
             					}
             					setWithLastConsumed(
             						current,
@@ -1255,9 +1261,69 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,17,FOLLOW_2); 
+            otherlv_5=(Token)match(input,24,FOLLOW_5); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getContactUsPageAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_5, grammarAccess.getContactPageAccess().getSendFromKeyword_5());
+            		
+            // InternalGenerateMe.g:591:3: ( (lv_from_6_0= RULE_STRING ) )
+            // InternalGenerateMe.g:592:4: (lv_from_6_0= RULE_STRING )
+            {
+            // InternalGenerateMe.g:592:4: (lv_from_6_0= RULE_STRING )
+            // InternalGenerateMe.g:593:5: lv_from_6_0= RULE_STRING
+            {
+            lv_from_6_0=(Token)match(input,RULE_STRING,FOLLOW_17); 
+
+            					newLeafNode(lv_from_6_0, grammarAccess.getContactPageAccess().getFromSTRINGTerminalRuleCall_6_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getContactPageRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"from",
+            						lv_from_6_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+            otherlv_7=(Token)match(input,25,FOLLOW_5); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getContactPageAccess().getSendToKeyword_7());
+            		
+            // InternalGenerateMe.g:613:3: ( (lv_to_8_0= RULE_STRING ) )
+            // InternalGenerateMe.g:614:4: (lv_to_8_0= RULE_STRING )
+            {
+            // InternalGenerateMe.g:614:4: (lv_to_8_0= RULE_STRING )
+            // InternalGenerateMe.g:615:5: lv_to_8_0= RULE_STRING
+            {
+            lv_to_8_0=(Token)match(input,RULE_STRING,FOLLOW_10); 
+
+            					newLeafNode(lv_to_8_0, grammarAccess.getContactPageAccess().getToSTRINGTerminalRuleCall_8_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getContactPageRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"to",
+            						lv_to_8_0,
+            						"org.eclipse.xtext.common.Terminals.STRING");
+            				
+
+            }
+
+
+            }
+
+            otherlv_9=(Token)match(input,17,FOLLOW_2); 
+
+            			newLeafNode(otherlv_9, grammarAccess.getContactPageAccess().getRightCurlyBracketKeyword_9());
             		
 
             }
@@ -1278,11 +1344,11 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleContactUsPage"
+    // $ANTLR end "ruleContactPage"
 
 
     // $ANTLR start "entryRuleGalleryPage"
-    // InternalGenerateMe.g:595:1: entryRuleGalleryPage returns [EObject current=null] : iv_ruleGalleryPage= ruleGalleryPage EOF ;
+    // InternalGenerateMe.g:639:1: entryRuleGalleryPage returns [EObject current=null] : iv_ruleGalleryPage= ruleGalleryPage EOF ;
     public final EObject entryRuleGalleryPage() throws RecognitionException {
         EObject current = null;
 
@@ -1290,8 +1356,8 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGenerateMe.g:595:52: (iv_ruleGalleryPage= ruleGalleryPage EOF )
-            // InternalGenerateMe.g:596:2: iv_ruleGalleryPage= ruleGalleryPage EOF
+            // InternalGenerateMe.g:639:52: (iv_ruleGalleryPage= ruleGalleryPage EOF )
+            // InternalGenerateMe.g:640:2: iv_ruleGalleryPage= ruleGalleryPage EOF
             {
              newCompositeNode(grammarAccess.getGalleryPageRule()); 
             pushFollow(FOLLOW_1);
@@ -1318,7 +1384,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGalleryPage"
-    // InternalGenerateMe.g:602:1: ruleGalleryPage returns [EObject current=null] : (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' ) ;
+    // InternalGenerateMe.g:646:1: ruleGalleryPage returns [EObject current=null] : (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' ) ;
     public final EObject ruleGalleryPage() throws RecognitionException {
         EObject current = null;
 
@@ -1333,21 +1399,21 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGenerateMe.g:608:2: ( (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' ) )
-            // InternalGenerateMe.g:609:2: (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' )
+            // InternalGenerateMe.g:652:2: ( (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' ) )
+            // InternalGenerateMe.g:653:2: (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' )
             {
-            // InternalGenerateMe.g:609:2: (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' )
-            // InternalGenerateMe.g:610:3: otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}'
+            // InternalGenerateMe.g:653:2: (otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}' )
+            // InternalGenerateMe.g:654:3: otherlv_0= 'GalleryPage' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_photos_3_0= rulePhoto ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,24,FOLLOW_11); 
+            otherlv_0=(Token)match(input,26,FOLLOW_11); 
 
             			newLeafNode(otherlv_0, grammarAccess.getGalleryPageAccess().getGalleryPageKeyword_0());
             		
-            // InternalGenerateMe.g:614:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalGenerateMe.g:615:4: (lv_name_1_0= RULE_ID )
+            // InternalGenerateMe.g:658:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalGenerateMe.g:659:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalGenerateMe.g:615:4: (lv_name_1_0= RULE_ID )
-            // InternalGenerateMe.g:616:5: lv_name_1_0= RULE_ID
+            // InternalGenerateMe.g:659:4: (lv_name_1_0= RULE_ID )
+            // InternalGenerateMe.g:660:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
@@ -1369,32 +1435,32 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,19,FOLLOW_16); 
+            otherlv_2=(Token)match(input,19,FOLLOW_18); 
 
             			newLeafNode(otherlv_2, grammarAccess.getGalleryPageAccess().getLeftCurlyBracketKeyword_2());
             		
-            // InternalGenerateMe.g:636:3: ( (lv_photos_3_0= rulePhoto ) )*
+            // InternalGenerateMe.g:680:3: ( (lv_photos_3_0= rulePhoto ) )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==25) ) {
+                if ( (LA4_0==27) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalGenerateMe.g:637:4: (lv_photos_3_0= rulePhoto )
+            	    // InternalGenerateMe.g:681:4: (lv_photos_3_0= rulePhoto )
             	    {
-            	    // InternalGenerateMe.g:637:4: (lv_photos_3_0= rulePhoto )
-            	    // InternalGenerateMe.g:638:5: lv_photos_3_0= rulePhoto
+            	    // InternalGenerateMe.g:681:4: (lv_photos_3_0= rulePhoto )
+            	    // InternalGenerateMe.g:682:5: lv_photos_3_0= rulePhoto
             	    {
 
             	    					newCompositeNode(grammarAccess.getGalleryPageAccess().getPhotosPhotoParserRuleCall_3_0());
             	    				
-            	    pushFollow(FOLLOW_16);
+            	    pushFollow(FOLLOW_18);
             	    lv_photos_3_0=rulePhoto();
 
             	    state._fsp--;
@@ -1449,7 +1515,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePhoto"
-    // InternalGenerateMe.g:663:1: entryRulePhoto returns [EObject current=null] : iv_rulePhoto= rulePhoto EOF ;
+    // InternalGenerateMe.g:707:1: entryRulePhoto returns [EObject current=null] : iv_rulePhoto= rulePhoto EOF ;
     public final EObject entryRulePhoto() throws RecognitionException {
         EObject current = null;
 
@@ -1457,8 +1523,8 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalGenerateMe.g:663:46: (iv_rulePhoto= rulePhoto EOF )
-            // InternalGenerateMe.g:664:2: iv_rulePhoto= rulePhoto EOF
+            // InternalGenerateMe.g:707:46: (iv_rulePhoto= rulePhoto EOF )
+            // InternalGenerateMe.g:708:2: iv_rulePhoto= rulePhoto EOF
             {
              newCompositeNode(grammarAccess.getPhotoRule()); 
             pushFollow(FOLLOW_1);
@@ -1485,7 +1551,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePhoto"
-    // InternalGenerateMe.g:670:1: rulePhoto returns [EObject current=null] : (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' ) ;
+    // InternalGenerateMe.g:714:1: rulePhoto returns [EObject current=null] : (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' ) ;
     public final EObject rulePhoto() throws RecognitionException {
         EObject current = null;
 
@@ -1502,21 +1568,21 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalGenerateMe.g:676:2: ( (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' ) )
-            // InternalGenerateMe.g:677:2: (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' )
+            // InternalGenerateMe.g:720:2: ( (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' ) )
+            // InternalGenerateMe.g:721:2: (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' )
             {
-            // InternalGenerateMe.g:677:2: (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' )
-            // InternalGenerateMe.g:678:3: otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}'
+            // InternalGenerateMe.g:721:2: (otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}' )
+            // InternalGenerateMe.g:722:3: otherlv_0= 'Photo' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'PhotoDescription' ( (lv_description_4_0= RULE_STRING ) ) otherlv_5= 'PhotoFileName' ( (lv_fileName_6_0= RULE_STRING ) ) otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,25,FOLLOW_11); 
+            otherlv_0=(Token)match(input,27,FOLLOW_11); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPhotoAccess().getPhotoKeyword_0());
             		
-            // InternalGenerateMe.g:682:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalGenerateMe.g:683:4: (lv_name_1_0= RULE_ID )
+            // InternalGenerateMe.g:726:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalGenerateMe.g:727:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalGenerateMe.g:683:4: (lv_name_1_0= RULE_ID )
-            // InternalGenerateMe.g:684:5: lv_name_1_0= RULE_ID
+            // InternalGenerateMe.g:727:4: (lv_name_1_0= RULE_ID )
+            // InternalGenerateMe.g:728:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
@@ -1538,21 +1604,21 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,19,FOLLOW_17); 
+            otherlv_2=(Token)match(input,19,FOLLOW_19); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPhotoAccess().getLeftCurlyBracketKeyword_2());
             		
-            otherlv_3=(Token)match(input,26,FOLLOW_5); 
+            otherlv_3=(Token)match(input,28,FOLLOW_5); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPhotoAccess().getPhotoDescriptionKeyword_3());
             		
-            // InternalGenerateMe.g:708:3: ( (lv_description_4_0= RULE_STRING ) )
-            // InternalGenerateMe.g:709:4: (lv_description_4_0= RULE_STRING )
+            // InternalGenerateMe.g:752:3: ( (lv_description_4_0= RULE_STRING ) )
+            // InternalGenerateMe.g:753:4: (lv_description_4_0= RULE_STRING )
             {
-            // InternalGenerateMe.g:709:4: (lv_description_4_0= RULE_STRING )
-            // InternalGenerateMe.g:710:5: lv_description_4_0= RULE_STRING
+            // InternalGenerateMe.g:753:4: (lv_description_4_0= RULE_STRING )
+            // InternalGenerateMe.g:754:5: lv_description_4_0= RULE_STRING
             {
-            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_18); 
+            lv_description_4_0=(Token)match(input,RULE_STRING,FOLLOW_20); 
 
             					newLeafNode(lv_description_4_0, grammarAccess.getPhotoAccess().getDescriptionSTRINGTerminalRuleCall_4_0());
             				
@@ -1572,15 +1638,15 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,27,FOLLOW_5); 
+            otherlv_5=(Token)match(input,29,FOLLOW_5); 
 
             			newLeafNode(otherlv_5, grammarAccess.getPhotoAccess().getPhotoFileNameKeyword_5());
             		
-            // InternalGenerateMe.g:730:3: ( (lv_fileName_6_0= RULE_STRING ) )
-            // InternalGenerateMe.g:731:4: (lv_fileName_6_0= RULE_STRING )
+            // InternalGenerateMe.g:774:3: ( (lv_fileName_6_0= RULE_STRING ) )
+            // InternalGenerateMe.g:775:4: (lv_fileName_6_0= RULE_STRING )
             {
-            // InternalGenerateMe.g:731:4: (lv_fileName_6_0= RULE_STRING )
-            // InternalGenerateMe.g:732:5: lv_fileName_6_0= RULE_STRING
+            // InternalGenerateMe.g:775:4: (lv_fileName_6_0= RULE_STRING )
+            // InternalGenerateMe.g:776:5: lv_fileName_6_0= RULE_STRING
             {
             lv_fileName_6_0=(Token)match(input,RULE_STRING,FOLLOW_10); 
 
@@ -1635,7 +1701,7 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000001840002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000004840002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002000L});
@@ -1647,8 +1713,10 @@ public class InternalGenerateMeParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000120000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002020000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008020000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000020000000L});
 
 }

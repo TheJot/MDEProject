@@ -37,7 +37,7 @@ public class GenerateMeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHomePageAccess().getGroup(), "rule__HomePage__Group__0");
 			builder.put(grammarAccess.getContentPageAccess().getGroup(), "rule__ContentPage__Group__0");
 			builder.put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
-			builder.put(grammarAccess.getContactUsPageAccess().getGroup(), "rule__ContactUsPage__Group__0");
+			builder.put(grammarAccess.getContactPageAccess().getGroup(), "rule__ContactPage__Group__0");
 			builder.put(grammarAccess.getGalleryPageAccess().getGroup(), "rule__GalleryPage__Group__0");
 			builder.put(grammarAccess.getPhotoAccess().getGroup(), "rule__Photo__Group__0");
 			builder.put(grammarAccess.getGenerateMeProgramAccess().getConfigAssignment_0(), "rule__GenerateMeProgram__ConfigAssignment_0");
@@ -54,8 +54,10 @@ public class GenerateMeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSectionAccess().getNameAssignment_1(), "rule__Section__NameAssignment_1");
 			builder.put(grammarAccess.getSectionAccess().getTitleAssignment_4(), "rule__Section__TitleAssignment_4");
 			builder.put(grammarAccess.getSectionAccess().getContentAssignment_6(), "rule__Section__ContentAssignment_6");
-			builder.put(grammarAccess.getContactUsPageAccess().getNameAssignment_1(), "rule__ContactUsPage__NameAssignment_1");
-			builder.put(grammarAccess.getContactUsPageAccess().getHeaderAssignment_4(), "rule__ContactUsPage__HeaderAssignment_4");
+			builder.put(grammarAccess.getContactPageAccess().getNameAssignment_1(), "rule__ContactPage__NameAssignment_1");
+			builder.put(grammarAccess.getContactPageAccess().getHeaderAssignment_4(), "rule__ContactPage__HeaderAssignment_4");
+			builder.put(grammarAccess.getContactPageAccess().getFromAssignment_6(), "rule__ContactPage__FromAssignment_6");
+			builder.put(grammarAccess.getContactPageAccess().getToAssignment_8(), "rule__ContactPage__ToAssignment_8");
 			builder.put(grammarAccess.getGalleryPageAccess().getNameAssignment_1(), "rule__GalleryPage__NameAssignment_1");
 			builder.put(grammarAccess.getGalleryPageAccess().getPhotosAssignment_3(), "rule__GalleryPage__PhotosAssignment_3");
 			builder.put(grammarAccess.getPhotoAccess().getNameAssignment_1(), "rule__Photo__NameAssignment_1");

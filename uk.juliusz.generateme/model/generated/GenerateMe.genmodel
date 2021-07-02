@@ -32,8 +32,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Section/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Section/content"/>
     </genClasses>
-    <genClasses ecoreClass="GenerateMe.ecore#//ContactUsPage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactUsPage/header"/>
+    <genClasses ecoreClass="GenerateMe.ecore#//ContactPage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactPage/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactPage/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactPage/to"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//GalleryPage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//GalleryPage/photos"/>

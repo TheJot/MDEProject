@@ -327,11 +327,11 @@ rulePages returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getPagesAccess().getContactUsPageParserRuleCall_2());
+			newCompositeNode(grammarAccess.getPagesAccess().getContactPageParserRuleCall_2());
 		}
-		this_ContactUsPage_2=ruleContactUsPage
+		this_ContactPage_2=ruleContactPage
 		{
-			$current = $this_ContactUsPage_2.current;
+			$current = $this_ContactPage_2.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -520,15 +520,15 @@ ruleSection returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleContactUsPage
-entryRuleContactUsPage returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getContactUsPageRule()); }
-	iv_ruleContactUsPage=ruleContactUsPage
-	{ $current=$iv_ruleContactUsPage.current; }
+// Entry rule entryRuleContactPage
+entryRuleContactPage returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getContactPageRule()); }
+	iv_ruleContactPage=ruleContactPage
+	{ $current=$iv_ruleContactPage.current; }
 	EOF;
 
-// Rule ContactUsPage
-ruleContactUsPage returns [EObject current=null]
+// Rule ContactPage
+ruleContactPage returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -536,19 +536,19 @@ ruleContactUsPage returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='ContactUsPage'
+		otherlv_0='ContactPage'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getContactUsPageAccess().getContactUsPageKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getContactPageAccess().getContactPageKeyword_0());
 		}
 		(
 			(
 				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getContactUsPageAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getContactPageAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getContactUsPageRule());
+						$current = createModelElement(grammarAccess.getContactPageRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -560,21 +560,21 @@ ruleContactUsPage returns [EObject current=null]
 		)
 		otherlv_2='{'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getContactUsPageAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getContactPageAccess().getLeftCurlyBracketKeyword_2());
 		}
 		otherlv_3='PageHeader'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getContactUsPageAccess().getPageHeaderKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getContactPageAccess().getPageHeaderKeyword_3());
 		}
 		(
 			(
 				lv_header_4_0=RULE_STRING
 				{
-					newLeafNode(lv_header_4_0, grammarAccess.getContactUsPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_header_4_0, grammarAccess.getContactPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getContactUsPageRule());
+						$current = createModelElement(grammarAccess.getContactPageRule());
 					}
 					setWithLastConsumed(
 						$current,
@@ -584,9 +584,53 @@ ruleContactUsPage returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_5='}'
+		otherlv_5='SendFrom'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getContactUsPageAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getContactPageAccess().getSendFromKeyword_5());
+		}
+		(
+			(
+				lv_from_6_0=RULE_STRING
+				{
+					newLeafNode(lv_from_6_0, grammarAccess.getContactPageAccess().getFromSTRINGTerminalRuleCall_6_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getContactPageRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"from",
+						lv_from_6_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_7='SendTo'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getContactPageAccess().getSendToKeyword_7());
+		}
+		(
+			(
+				lv_to_8_0=RULE_STRING
+				{
+					newLeafNode(lv_to_8_0, grammarAccess.getContactPageAccess().getToSTRINGTerminalRuleCall_8_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getContactPageRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"to",
+						lv_to_8_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_9='}'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getContactPageAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
