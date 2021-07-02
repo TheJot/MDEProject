@@ -196,7 +196,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("<div class=\"col-sm-3\"></div>");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("<div class=\"col-sm-6 title\"> <center><h2>Welcome!</h2></center></div>");
+    _builder.append("<div class=\"col-sm-6 title\"> <center><h1>Welcome!</h1></center></div>");
     _builder.newLine();
     _builder.append("        ");
     _builder.append("<div class=\"col-sm-3\"></div>");
@@ -219,14 +219,14 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("<br>");
     _builder.newLine();
     _builder.append("            ");
-    _builder.append("<center>");
+    _builder.append("<center><h4>");
     _builder.newLine();
     _builder.append("            ");
     String _introduction = homepage.getIntroduction();
     _builder.append(_introduction, "            ");
     _builder.newLineIfNotEmpty();
     _builder.append("            ");
-    _builder.append("</center>");
+    _builder.append("</h4></center>");
     _builder.newLine();
     _builder.newLine();
     _builder.append("        ");

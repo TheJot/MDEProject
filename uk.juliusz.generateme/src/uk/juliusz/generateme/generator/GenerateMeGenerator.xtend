@@ -129,7 +129,7 @@ include('header.php');
 
     <div class="row" style="display: flex; align-items: center;">
         <div class="col-sm-3"></div>
-        <div class="col-sm-6 title"> <center><h2>Welcome!</h2></center></div>
+        <div class="col-sm-6 title"> <center><h1>Welcome!</h1></center></div>
         <div class="col-sm-3"></div>
     </div>
 
@@ -138,9 +138,9 @@ include('header.php');
         <div class="col-sm-2 "></div>
         <div class="col-sm-8 ">
             <br>
-            <center>
+            <center><h4>
             «homepage.introduction»
-            </center>
+            </h4></center>
 
         </div>
         <div class="col-sm-2 "></div>
