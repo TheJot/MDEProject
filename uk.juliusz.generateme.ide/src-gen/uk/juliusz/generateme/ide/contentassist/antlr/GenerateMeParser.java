@@ -36,6 +36,7 @@ public class GenerateMeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConfigAccess().getGroup(), "rule__Config__Group__0");
 			builder.put(grammarAccess.getHomePageAccess().getGroup(), "rule__HomePage__Group__0");
 			builder.put(grammarAccess.getContentPageAccess().getGroup(), "rule__ContentPage__Group__0");
+			builder.put(grammarAccess.getSectionAccess().getGroup(), "rule__Section__Group__0");
 			builder.put(grammarAccess.getContactUsPageAccess().getGroup(), "rule__ContactUsPage__Group__0");
 			builder.put(grammarAccess.getGalleryPageAccess().getGroup(), "rule__GalleryPage__Group__0");
 			builder.put(grammarAccess.getPhotoAccess().getGroup(), "rule__Photo__Group__0");
@@ -48,12 +49,16 @@ public class GenerateMeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getHomePageAccess().getContentAssignment_2(), "rule__HomePage__ContentAssignment_2");
 			builder.put(grammarAccess.getHomePageAccess().getIntroductionAssignment_4(), "rule__HomePage__IntroductionAssignment_4");
 			builder.put(grammarAccess.getContentPageAccess().getNameAssignment_1(), "rule__ContentPage__NameAssignment_1");
-			builder.put(grammarAccess.getContentPageAccess().getContentAssignment_4(), "rule__ContentPage__ContentAssignment_4");
+			builder.put(grammarAccess.getContentPageAccess().getHeaderAssignment_4(), "rule__ContentPage__HeaderAssignment_4");
+			builder.put(grammarAccess.getContentPageAccess().getSectionAssignment_5(), "rule__ContentPage__SectionAssignment_5");
+			builder.put(grammarAccess.getSectionAccess().getNameAssignment_1(), "rule__Section__NameAssignment_1");
+			builder.put(grammarAccess.getSectionAccess().getTitleAssignment_4(), "rule__Section__TitleAssignment_4");
+			builder.put(grammarAccess.getSectionAccess().getContentAssignment_6(), "rule__Section__ContentAssignment_6");
 			builder.put(grammarAccess.getContactUsPageAccess().getNameAssignment_1(), "rule__ContactUsPage__NameAssignment_1");
-			builder.put(grammarAccess.getContactUsPageAccess().getContentAssignment_4(), "rule__ContactUsPage__ContentAssignment_4");
+			builder.put(grammarAccess.getContactUsPageAccess().getHeaderAssignment_4(), "rule__ContactUsPage__HeaderAssignment_4");
 			builder.put(grammarAccess.getGalleryPageAccess().getNameAssignment_1(), "rule__GalleryPage__NameAssignment_1");
 			builder.put(grammarAccess.getGalleryPageAccess().getPhotosAssignment_3(), "rule__GalleryPage__PhotosAssignment_3");
-			builder.put(grammarAccess.getPhotoAccess().getPhotoTitleAssignment_1(), "rule__Photo__PhotoTitleAssignment_1");
+			builder.put(grammarAccess.getPhotoAccess().getNameAssignment_1(), "rule__Photo__NameAssignment_1");
 			builder.put(grammarAccess.getPhotoAccess().getDescriptionAssignment_4(), "rule__Photo__DescriptionAssignment_4");
 			builder.put(grammarAccess.getPhotoAccess().getFileNameAssignment_6(), "rule__Photo__FileNameAssignment_6");
 		}

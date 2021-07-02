@@ -101,6 +101,11 @@ public class GenerateMeAdapterFactory extends AdapterFactoryImpl
         return createContentPageAdapter();
       }
       @Override
+      public Adapter caseSection(Section object)
+      {
+        return createSectionAdapter();
+      }
+      @Override
       public Adapter caseContactUsPage(ContactUsPage object)
       {
         return createContactUsPageAdapter();
@@ -208,6 +213,21 @@ public class GenerateMeAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContentPageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link uk.juliusz.generateme.generateMe.Section <em>Section</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see uk.juliusz.generateme.generateMe.Section
+   * @generated
+   */
+  public Adapter createSectionAdapter()
   {
     return null;
   }

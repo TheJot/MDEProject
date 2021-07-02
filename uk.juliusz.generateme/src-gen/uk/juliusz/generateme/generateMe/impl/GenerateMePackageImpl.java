@@ -20,6 +20,7 @@ import uk.juliusz.generateme.generateMe.GenerateMeProgram;
 import uk.juliusz.generateme.generateMe.HomePage;
 import uk.juliusz.generateme.generateMe.Pages;
 import uk.juliusz.generateme.generateMe.Photo;
+import uk.juliusz.generateme.generateMe.Section;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +64,13 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   private EClass contentPageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sectionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -308,9 +316,64 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getContentPage_Content()
+  public EAttribute getContentPage_Header()
   {
     return (EAttribute)contentPageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getContentPage_Section()
+  {
+    return (EReference)contentPageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSection()
+  {
+    return sectionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSection_Name()
+  {
+    return (EAttribute)sectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSection_Title()
+  {
+    return (EAttribute)sectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSection_Content()
+  {
+    return (EAttribute)sectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -330,7 +393,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getContactUsPage_Content()
+  public EAttribute getContactUsPage_Header()
   {
     return (EAttribute)contactUsPageEClass.getEStructuralFeatures().get(0);
   }
@@ -374,7 +437,7 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getPhoto_PhotoTitle()
+  public EAttribute getPhoto_Name()
   {
     return (EAttribute)photoEClass.getEStructuralFeatures().get(0);
   }
@@ -450,16 +513,22 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     createEAttribute(pagesEClass, PAGES__NAME);
 
     contentPageEClass = createEClass(CONTENT_PAGE);
-    createEAttribute(contentPageEClass, CONTENT_PAGE__CONTENT);
+    createEAttribute(contentPageEClass, CONTENT_PAGE__HEADER);
+    createEReference(contentPageEClass, CONTENT_PAGE__SECTION);
+
+    sectionEClass = createEClass(SECTION);
+    createEAttribute(sectionEClass, SECTION__NAME);
+    createEAttribute(sectionEClass, SECTION__TITLE);
+    createEAttribute(sectionEClass, SECTION__CONTENT);
 
     contactUsPageEClass = createEClass(CONTACT_US_PAGE);
-    createEAttribute(contactUsPageEClass, CONTACT_US_PAGE__CONTENT);
+    createEAttribute(contactUsPageEClass, CONTACT_US_PAGE__HEADER);
 
     galleryPageEClass = createEClass(GALLERY_PAGE);
     createEReference(galleryPageEClass, GALLERY_PAGE__PHOTOS);
 
     photoEClass = createEClass(PHOTO);
-    createEAttribute(photoEClass, PHOTO__PHOTO_TITLE);
+    createEAttribute(photoEClass, PHOTO__NAME);
     createEAttribute(photoEClass, PHOTO__DESCRIPTION);
     createEAttribute(photoEClass, PHOTO__FILE_NAME);
   }
@@ -516,16 +585,22 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
     initEAttribute(getPages_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pages.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contentPageEClass, ContentPage.class, "ContentPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContentPage_Content(), ecorePackage.getEString(), "content", null, 0, 1, ContentPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContentPage_Header(), ecorePackage.getEString(), "header", null, 0, 1, ContentPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContentPage_Section(), this.getSection(), null, "section", null, 0, -1, ContentPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSection_Name(), ecorePackage.getEString(), "name", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSection_Content(), ecorePackage.getEString(), "content", null, 0, 1, Section.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(contactUsPageEClass, ContactUsPage.class, "ContactUsPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContactUsPage_Content(), ecorePackage.getEString(), "content", null, 0, 1, ContactUsPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContactUsPage_Header(), ecorePackage.getEString(), "header", null, 0, 1, ContactUsPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(galleryPageEClass, GalleryPage.class, "GalleryPage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGalleryPage_Photos(), this.getPhoto(), null, "photos", null, 0, -1, GalleryPage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(photoEClass, Photo.class, "Photo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPhoto_PhotoTitle(), ecorePackage.getEString(), "photoTitle", null, 0, 1, Photo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPhoto_Name(), ecorePackage.getEString(), "name", null, 0, 1, Photo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPhoto_Description(), ecorePackage.getEString(), "description", null, 0, 1, Photo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPhoto_FileName(), ecorePackage.getEString(), "fileName", null, 0, 1, Photo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

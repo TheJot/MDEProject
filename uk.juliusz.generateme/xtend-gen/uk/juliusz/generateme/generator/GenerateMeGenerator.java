@@ -4,22 +4,28 @@
 package uk.juliusz.generateme.generator;
 
 import com.google.common.collect.Iterators;
+import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import uk.juliusz.generateme.generateMe.Config;
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GalleryPage;
 import uk.juliusz.generateme.generateMe.GenerateMeProgram;
 import uk.juliusz.generateme.generateMe.HomePage;
 import uk.juliusz.generateme.generateMe.Pages;
+import uk.juliusz.generateme.generateMe.Photo;
+import uk.juliusz.generateme.generateMe.Section;
 
 /**
  * Generates code from your model files on save.
@@ -32,19 +38,18 @@ public class GenerateMeGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     final GenerateMeProgram model = ((GenerateMeProgram) _head);
-    fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.doGenerate(model));
+    fsa.generateFile("menu.php", this.doGenerate(model));
     Iterable<ContentPage> _iterable = IteratorExtensions.<ContentPage>toIterable(Iterators.<ContentPage>filter(resource.getAllContents(), ContentPage.class));
     for (final ContentPage ContentPage : _iterable) {
       String _name = ContentPage.getName();
       String _plus = (_name + ".php");
-      fsa.generateFile(_plus, this.doGenerate(model));
+      fsa.generateFile(_plus, this.doGenerate(ContentPage));
     }
     Iterable<GalleryPage> _iterable_1 = IteratorExtensions.<GalleryPage>toIterable(Iterators.<GalleryPage>filter(resource.getAllContents(), GalleryPage.class));
     for (final GalleryPage GalleryPage : _iterable_1) {
       String _name_1 = GalleryPage.getName();
-      String _plus_1 = ("Gallery" + _name_1);
-      String _plus_2 = (_plus_1 + ".php");
-      fsa.generateFile(_plus_2, this.doGenerate(GalleryPage));
+      String _plus_1 = (_name_1 + ".php");
+      fsa.generateFile(_plus_1, this.doGenerate(GalleryPage));
     }
     Iterable<Config> _iterable_2 = IteratorExtensions.<Config>toIterable(Iterators.<Config>filter(resource.getAllContents(), Config.class));
     for (final Config Config : _iterable_2) {
@@ -98,14 +103,89 @@ public class GenerateMeGenerator extends AbstractGenerator {
   
   public String doGenerate(final GalleryPage gallery) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Program contains:");
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("include(\'header.php\');");
+    _builder.newLine();
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<div class=\"row\"><br><br><br><br><br><br><br></div>");
+    _builder.newLine();
+    _builder.append("<div class=\"container\">");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-6 title\"> <center><h2>Gallery: ");
+    String _name = gallery.getName();
+    _builder.append(_name, "        ");
+    _builder.append("</h2></center></div>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-8 \">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<center>");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("This is gallery: ");
-    String _name = gallery.getName();
-    _builder.append(_name, "\t\t");
-    _builder.append(" ");
+    final Function1<Photo, String> _function = (Photo it) -> {
+      return this.generateJavaStatement(it);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Photo, String>map(gallery.getPhotos(), _function), "\n");
+    _builder.append(_join, "\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("            ");
+    _builder.append("</center>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<br><br><br><br><br><br>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
+    _builder.newLine();
+    _builder.newLine();
     _builder.newLine();
     return _builder.toString();
   }
@@ -192,33 +272,158 @@ public class GenerateMeGenerator extends AbstractGenerator {
     return _builder.toString();
   }
   
+  public String doGenerate(final ContentPage page) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("include(\'header.php\');");
+    _builder.newLine();
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<div class=\"row\"><br><br><br><br><br><br><br></div>");
+    _builder.newLine();
+    _builder.append("<div class=\"container\">");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-6 title\"> <center><h1>");
+    String _header = page.getHeader();
+    _builder.append(_header, "        ");
+    _builder.append("</h1></center></div>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-3\"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<div class=\"row\" style=\"display: flex; align-items: center;\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-8 \">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<center>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    final Function1<Section, String> _function = (Section it) -> {
+      return this.generateJavaStatement(it);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Section, String>map(page.getSection(), _function), "\n");
+    _builder.append(_join, "\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("            ");
+    _builder.append("</center>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<div class=\"col-sm-2 \"></div>");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("<br><br><br><br><br><br>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
   public String doGenerate(final GenerateMeProgram program) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Program contains:");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("-");
-    int _size = IteratorExtensions.size(Iterators.<GalleryPage>filter(program.eAllContents(), GalleryPage.class));
-    _builder.append(_size, "\t\t");
-    _builder.append(" galleries");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("-");
-    int _size_1 = IteratorExtensions.size(Iterators.<HomePage>filter(program.eAllContents(), HomePage.class));
-    _builder.append(_size_1, "\t\t");
-    _builder.append(" home pages");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("- ");
-    int _size_2 = IteratorExtensions.size(Iterators.<ContentPage>filter(program.eAllContents(), ContentPage.class));
-    _builder.append(_size_2, "\t\t");
-    _builder.append(" content pages");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    String _introduction = program.getHomePage().getIntroduction();
-    _builder.append(_introduction, "\t\t");
+    final Function1<Pages, String> _function = (Pages it) -> {
+      return this.generateJavaStatement(it);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Pages, String>map(program.getPages(), _function), "\n");
+    _builder.append(_join);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final Pages page) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<li><a href=\"");
+    String _name = page.getName();
+    _builder.append(_name);
+    _builder.append(".php\">");
+    String _firstUpper = StringExtensions.toFirstUpper(page.getName());
+    _builder.append(_firstUpper);
+    _builder.append("</a></li>");
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final GalleryPage gallerypage) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<li><a href=\"");
+    String _name = gallerypage.getName();
+    _builder.append(_name);
+    _builder.append(".php\">");
+    String _firstUpper = StringExtensions.toFirstUpper(gallerypage.getName());
+    _builder.append(_firstUpper);
+    _builder.append("</a></li>");
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final Photo photo) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<b>");
+    String _name = photo.getName();
+    _builder.append(_name);
+    _builder.append("</b><br><img src=\"images/");
+    String _fileName = photo.getFileName();
+    _builder.append(_fileName);
+    _builder.append("\" alt=\"");
+    String _name_1 = photo.getName();
+    _builder.append(_name_1);
+    _builder.append("\" width=\"500\" height=\"600\"><br><i> ");
+    String _description = photo.getDescription();
+    _builder.append(_description);
+    _builder.append("</i><br><br><br>");
+    return _builder.toString();
+  }
+  
+  protected String _generateJavaStatement(final Section section) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<h2>");
+    String _title = section.getTitle();
+    _builder.append(_title);
+    _builder.append("</h2><h4>");
+    String _content = section.getContent();
+    _builder.append(_content);
+    _builder.append("</h4><br><br><br>");
     return _builder.toString();
   }
   
@@ -296,40 +501,13 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("<ul class=\"nav navbar-nav\">");
     _builder.newLine();
     _builder.append("                ");
-    _builder.append("<li><a href=\"index.php\">Home</a></li>");
+    _builder.append("<?php");
     _builder.newLine();
     _builder.append("                ");
-    _builder.append("<li class=\"dropdown\">");
-    _builder.newLine();
-    _builder.append("                    ");
-    _builder.append("<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Top lists<span class=\"caret\"></span></a>");
-    _builder.newLine();
-    _builder.append("                    ");
-    _builder.append("<ul class=\"dropdown-menu\">");
-    _builder.newLine();
-    _builder.append("                        ");
-    _builder.append("<li><a href=\"topArguments.php\">Top arguments</a></li>");
-    _builder.newLine();
-    _builder.append("                        ");
-    _builder.append("<li><a href=\"topDebates.php\">Top debates</a></li>");
-    _builder.newLine();
-    _builder.append("                        ");
-    _builder.append("<li><a href=\"topUsers.php\">Top users</a></li>");
-    _builder.newLine();
-    _builder.append("                    ");
-    _builder.append("</ul>");
+    _builder.append("include(\'menu.php\');");
     _builder.newLine();
     _builder.append("                ");
-    _builder.append("</li>");
-    _builder.newLine();
-    _builder.append("                ");
-    _builder.append("<li><a href=\"debateStart.php\">Create debate</a></li>");
-    _builder.newLine();
-    _builder.append("                ");
-    _builder.append("<li><a href=\"debates.php\">All debates</a></li>");
-    _builder.newLine();
-    _builder.append("                ");
-    _builder.append("<li><a href=\"faq.php\">FAQ</a></li>");
+    _builder.append("?>");
     _builder.newLine();
     _builder.newLine();
     _builder.append("            ");
@@ -353,7 +531,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("<div class=\"row\" >");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("<br><br><br><br>");
+    _builder.append("<br>");
     _builder.newLine();
     _builder.newLine();
     _builder.append("</div>");
@@ -414,7 +592,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append(".title{");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("border-radius: 25px 25px 0px 0px;");
+    _builder.append("border-radius: 25px 25px 25px 25px;");
     _builder.newLine();
     _builder.append("        ");
     _builder.append("background: rgba(30,144,255, 0.1);");
@@ -441,5 +619,20 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.newLine();
     return _builder.toString();
+  }
+  
+  public String generateJavaStatement(final EObject gallerypage) {
+    if (gallerypage instanceof GalleryPage) {
+      return _generateJavaStatement((GalleryPage)gallerypage);
+    } else if (gallerypage instanceof Pages) {
+      return _generateJavaStatement((Pages)gallerypage);
+    } else if (gallerypage instanceof Photo) {
+      return _generateJavaStatement((Photo)gallerypage);
+    } else if (gallerypage instanceof Section) {
+      return _generateJavaStatement((Section)gallerypage);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(gallerypage).toString());
+    }
   }
 }

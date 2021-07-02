@@ -14,6 +14,7 @@ import uk.juliusz.generateme.generateMe.ContentPage
 import uk.juliusz.generateme.generateMe.Config
 import uk.juliusz.generateme.generateMe.Photo
 import uk.juliusz.generateme.generateMe.Pages
+import uk.juliusz.generateme.generateMe.Section
 
 /**
  * Generates code from your model files on save.
@@ -28,18 +29,18 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	
 		val model = resource.contents.head as GenerateMeProgram
 		
-		fsa.generateFile(deriveTargetFileNameFor(model, resource), model.doGenerate)
+		fsa.generateFile('menu.php', model.doGenerate)
 		
 		
 	
 	 
 	for(ContentPage : resource.allContents.filter(ContentPage).toIterable){
-		fsa.generateFile(ContentPage.name+'.php', model.doGenerate)
+		fsa.generateFile(ContentPage.name+'.php', ContentPage.doGenerate)
 
          }
          
     	for(GalleryPage : resource.allContents.filter(GalleryPage).toIterable){
-		fsa.generateFile('Gallery'+ GalleryPage.name+'.php', GalleryPage.doGenerate)
+		fsa.generateFile(GalleryPage.name+'.php', GalleryPage.doGenerate)
          }
 
 	for(Config : resource.allContents.filter(Config).toIterable){
@@ -79,8 +80,42 @@ override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorCo
 	'''
 
 	def String doGenerate(GalleryPage gallery) '''
-		Program contains:
-				This is gallery: «gallery.name» 
+<?php
+include('header.php');
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h2>Gallery: «gallery.getName»</h2></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-8 ">
+            <br>
+            <center>
+		«gallery.photos.map[generateJavaStatement()].join('\n')»
+            </center>
+
+        </div>
+        <div class="col-sm-2 "></div>
+    </div>
+
+<br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
+
 
 	'''
 	
@@ -125,14 +160,68 @@ include('header.php');
 	'''
 	
 	
-	def String doGenerate(GenerateMeProgram program) '''
-		Program contains:
-				-«program.eAllContents.filter(GalleryPage).size» galleries
-				-«program.eAllContents.filter(HomePage).size» home pages
-				- «program.eAllContents.filter(ContentPage).size» content pages
-				«program.homePage.introduction»
+	
+	def String doGenerate(ContentPage page) '''
+<?php
+include('header.php');
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h1>«page.header»</h1></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-8 ">
+            <br>
+            <center>
+		«page.section.map[generateJavaStatement()].join('\n')»
+            </center>
+
+        </div>
+        <div class="col-sm-2 "></div>
+    </div>
+
+<br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
+
 
 	'''
+	
+	
+	
+	
+	def String doGenerate(GenerateMeProgram program) '''
+		«program.pages.map[generateJavaStatement()].join('\n')»
+
+	'''
+	
+	dispatch def String generateJavaStatement(Pages page) '''<li><a href="«page.getName».php">«page.getName.toFirstUpper»</a></li>'''
+	dispatch def String generateJavaStatement(GalleryPage gallerypage) '''<li><a href="«gallerypage.getName».php">«gallerypage.getName.toFirstUpper»</a></li>'''
+	dispatch def String generateJavaStatement(Photo photo) '''<b>«photo.getName»</b><br><img src="images/«photo.fileName»" alt="«photo.getName»" width="500" height="600"><br><i> «photo.description»</i><br><br><br>'''
+	dispatch def String generateJavaStatement(Section section) '''<h2>«section.title»</h2><h4>«section.content»</h4><br><br><br>'''
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 			def String doGenerate(Config config) '''
@@ -163,18 +252,9 @@ include('header.php');
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="index.php">Home</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Top lists<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="topArguments.php">Top arguments</a></li>
-                        <li><a href="topDebates.php">Top debates</a></li>
-                        <li><a href="topUsers.php">Top users</a></li>
-                    </ul>
-                </li>
-                <li><a href="debateStart.php">Create debate</a></li>
-                <li><a href="debates.php">All debates</a></li>
-                <li><a href="faq.php">FAQ</a></li>
+                <?php
+                include('menu.php');
+                ?>
 
             </ul>
 
@@ -186,7 +266,7 @@ include('header.php');
 <!-- Top spacer -->
 
 <div class="row" >
-    <br><br><br><br>
+    <br>
 
 </div>
 
@@ -210,7 +290,7 @@ include('header.php');
     }
 
     .title{
-        border-radius: 25px 25px 0px 0px;
+        border-radius: 25px 25px 25px 25px;
         background: rgba(30,144,255, 0.1);
     }
 

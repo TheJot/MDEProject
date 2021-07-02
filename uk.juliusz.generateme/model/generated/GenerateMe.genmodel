@@ -24,16 +24,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Pages/name"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//ContentPage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContentPage/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContentPage/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//ContentPage/section"/>
+    </genClasses>
+    <genClasses ecoreClass="GenerateMe.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Section/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Section/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Section/content"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//ContactUsPage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactUsPage/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//ContactUsPage/header"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//GalleryPage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GenerateMe.ecore#//GalleryPage/photos"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//Photo">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Photo/photoTitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Photo/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Photo/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Photo/fileName"/>
     </genClasses>

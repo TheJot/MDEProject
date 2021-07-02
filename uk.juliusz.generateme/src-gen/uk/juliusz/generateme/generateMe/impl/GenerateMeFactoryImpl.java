@@ -70,6 +70,7 @@ public class GenerateMeFactoryImpl extends EFactoryImpl implements GenerateMeFac
       case GenerateMePackage.HOME_PAGE: return createHomePage();
       case GenerateMePackage.PAGES: return createPages();
       case GenerateMePackage.CONTENT_PAGE: return createContentPage();
+      case GenerateMePackage.SECTION: return createSection();
       case GenerateMePackage.CONTACT_US_PAGE: return createContactUsPage();
       case GenerateMePackage.GALLERY_PAGE: return createGalleryPage();
       case GenerateMePackage.PHOTO: return createPhoto();
@@ -136,6 +137,18 @@ public class GenerateMeFactoryImpl extends EFactoryImpl implements GenerateMeFac
   {
     ContentPageImpl contentPage = new ContentPageImpl();
     return contentPage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Section createSection()
+  {
+    SectionImpl section = new SectionImpl();
+    return section;
   }
 
   /**

@@ -109,6 +109,13 @@ public class GenerateMeSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case GenerateMePackage.SECTION:
+      {
+        Section section = (Section)theEObject;
+        T result = caseSection(section);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case GenerateMePackage.CONTACT_US_PAGE:
       {
         ContactUsPage contactUsPage = (ContactUsPage)theEObject;
@@ -212,6 +219,22 @@ public class GenerateMeSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContentPage(ContentPage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Section</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Section</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSection(Section object)
   {
     return null;
   }

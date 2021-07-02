@@ -185,17 +185,20 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cPageHeaderKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cContentAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cContentSTRINGTerminalRuleCall_4_0 = (RuleCall)cContentAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cHeaderAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cHeaderSTRINGTerminalRuleCall_4_0 = (RuleCall)cHeaderAssignment_4.eContents().get(0);
+		private final Assignment cSectionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSectionSectionParserRuleCall_5_0 = (RuleCall)cSectionAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ContentPage:
 		//	'ContentPage' name=ID '{'
-		//	'PageHeader' content=STRING
+		//	'PageHeader' header=STRING
+		//	section+=Section*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ContentPage' name=ID '{' 'PageHeader' content=STRING '}'
+		//'ContentPage' name=ID '{' 'PageHeader' header=STRING section+=Section* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'ContentPage'
@@ -213,14 +216,78 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//'PageHeader'
 		public Keyword getPageHeaderKeyword_3() { return cPageHeaderKeyword_3; }
 		
-		//content=STRING
-		public Assignment getContentAssignment_4() { return cContentAssignment_4; }
+		//header=STRING
+		public Assignment getHeaderAssignment_4() { return cHeaderAssignment_4; }
 		
 		//STRING
-		public RuleCall getContentSTRINGTerminalRuleCall_4_0() { return cContentSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getHeaderSTRINGTerminalRuleCall_4_0() { return cHeaderSTRINGTerminalRuleCall_4_0; }
+		
+		//section+=Section*
+		public Assignment getSectionAssignment_5() { return cSectionAssignment_5; }
+		
+		//Section
+		public RuleCall getSectionSectionParserRuleCall_5_0() { return cSectionSectionParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class SectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Section");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSectionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cTitleKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cTitleAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_4_0 = (RuleCall)cTitleAssignment_4.eContents().get(0);
+		private final Keyword cContentKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cContentAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cContentSTRINGTerminalRuleCall_6_0 = (RuleCall)cContentAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		
+		//Section:
+		//	'Section' name=ID '{'
+		//	'Title' title=STRING
+		//	'Content' content=STRING
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Section' name=ID '{' 'Title' title=STRING 'Content' content=STRING '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Section'
+		public Keyword getSectionKeyword_0() { return cSectionKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'Title'
+		public Keyword getTitleKeyword_3() { return cTitleKeyword_3; }
+		
+		//title=STRING
+		public Assignment getTitleAssignment_4() { return cTitleAssignment_4; }
+		
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_4_0() { return cTitleSTRINGTerminalRuleCall_4_0; }
+		
+		//'Content'
+		public Keyword getContentKeyword_5() { return cContentKeyword_5; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_6() { return cContentAssignment_6; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_6_0() { return cContentSTRINGTerminalRuleCall_6_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 	public class ContactUsPageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.ContactUsPage");
@@ -230,17 +297,17 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cPageHeaderKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cContentAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cContentSTRINGTerminalRuleCall_4_0 = (RuleCall)cContentAssignment_4.eContents().get(0);
+		private final Assignment cHeaderAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cHeaderSTRINGTerminalRuleCall_4_0 = (RuleCall)cHeaderAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ContactUsPage:
 		//	'ContactUsPage' name=ID '{'
-		//	'PageHeader' content=STRING
+		//	'PageHeader' header=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ContactUsPage' name=ID '{' 'PageHeader' content=STRING '}'
+		//'ContactUsPage' name=ID '{' 'PageHeader' header=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'ContactUsPage'
@@ -258,11 +325,11 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//'PageHeader'
 		public Keyword getPageHeaderKeyword_3() { return cPageHeaderKeyword_3; }
 		
-		//content=STRING
-		public Assignment getContentAssignment_4() { return cContentAssignment_4; }
+		//header=STRING
+		public Assignment getHeaderAssignment_4() { return cHeaderAssignment_4; }
 		
 		//STRING
-		public RuleCall getContentSTRINGTerminalRuleCall_4_0() { return cContentSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getHeaderSTRINGTerminalRuleCall_4_0() { return cHeaderSTRINGTerminalRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -280,11 +347,11 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GalleryPage:
 		//	'GalleryPage' name=ID '{'
-		//	photos+=Photo
+		//	photos+=Photo*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'GalleryPage' name=ID '{' photos+=Photo '}'
+		//'GalleryPage' name=ID '{' photos+=Photo* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'GalleryPage'
@@ -299,7 +366,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//photos+=Photo
+		//photos+=Photo*
 		public Assignment getPhotosAssignment_3() { return cPhotosAssignment_3; }
 		
 		//Photo
@@ -312,8 +379,8 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.Photo");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPhotoKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cPhotoTitleAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPhotoTitleSTRINGTerminalRuleCall_1_0 = (RuleCall)cPhotoTitleAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cPhotoDescriptionKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -324,23 +391,23 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Photo:
-		//	'Photo' photoTitle=STRING '{'
+		//	'Photo' name=ID '{'
 		//	'PhotoDescription' description=STRING
 		//	'PhotoFileName' fileName=STRING
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Photo' photoTitle=STRING '{' 'PhotoDescription' description=STRING 'PhotoFileName' fileName=STRING '}'
+		//'Photo' name=ID '{' 'PhotoDescription' description=STRING 'PhotoFileName' fileName=STRING '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Photo'
 		public Keyword getPhotoKeyword_0() { return cPhotoKeyword_0; }
 		
-		//photoTitle=STRING
-		public Assignment getPhotoTitleAssignment_1() { return cPhotoTitleAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//STRING
-		public RuleCall getPhotoTitleSTRINGTerminalRuleCall_1_0() { return cPhotoTitleSTRINGTerminalRuleCall_1_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -373,6 +440,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	private final HomePageElements pHomePage;
 	private final PagesElements pPages;
 	private final ContentPageElements pContentPage;
+	private final SectionElements pSection;
 	private final ContactUsPageElements pContactUsPage;
 	private final GalleryPageElements pGalleryPage;
 	private final PhotoElements pPhoto;
@@ -391,6 +459,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		this.pHomePage = new HomePageElements();
 		this.pPages = new PagesElements();
 		this.pContentPage = new ContentPageElements();
+		this.pSection = new SectionElements();
 		this.pContactUsPage = new ContactUsPageElements();
 		this.pGalleryPage = new GalleryPageElements();
 		this.pPhoto = new PhotoElements();
@@ -472,7 +541,8 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//ContentPage:
 	//	'ContentPage' name=ID '{'
-	//	'PageHeader' content=STRING
+	//	'PageHeader' header=STRING
+	//	section+=Section*
 	//	'}';
 	public ContentPageElements getContentPageAccess() {
 		return pContentPage;
@@ -482,9 +552,22 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		return getContentPageAccess().getRule();
 	}
 	
+	//Section:
+	//	'Section' name=ID '{'
+	//	'Title' title=STRING
+	//	'Content' content=STRING
+	//	'}';
+	public SectionElements getSectionAccess() {
+		return pSection;
+	}
+	
+	public ParserRule getSectionRule() {
+		return getSectionAccess().getRule();
+	}
+	
 	//ContactUsPage:
 	//	'ContactUsPage' name=ID '{'
-	//	'PageHeader' content=STRING
+	//	'PageHeader' header=STRING
 	//	'}';
 	public ContactUsPageElements getContactUsPageAccess() {
 		return pContactUsPage;
@@ -496,7 +579,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//GalleryPage:
 	//	'GalleryPage' name=ID '{'
-	//	photos+=Photo
+	//	photos+=Photo*
 	//	'}';
 	public GalleryPageElements getGalleryPageAccess() {
 		return pGalleryPage;
@@ -507,7 +590,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Photo:
-	//	'Photo' photoTitle=STRING '{'
+	//	'Photo' name=ID '{'
 	//	'PhotoDescription' description=STRING
 	//	'PhotoFileName' fileName=STRING
 	//	'}';

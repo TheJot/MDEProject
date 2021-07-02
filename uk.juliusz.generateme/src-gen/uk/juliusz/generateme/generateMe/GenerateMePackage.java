@@ -234,13 +234,22 @@ public interface GenerateMePackage extends EPackage
   int CONTENT_PAGE__NAME = PAGES__NAME;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * The feature id for the '<em><b>Header</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTENT_PAGE__CONTENT = PAGES_FEATURE_COUNT + 0;
+  int CONTENT_PAGE__HEADER = PAGES_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Section</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTENT_PAGE__SECTION = PAGES_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Content Page</em>' class.
@@ -249,7 +258,53 @@ public interface GenerateMePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTENT_PAGE_FEATURE_COUNT = PAGES_FEATURE_COUNT + 1;
+  int CONTENT_PAGE_FEATURE_COUNT = PAGES_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.SectionImpl <em>Section</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see uk.juliusz.generateme.generateMe.impl.SectionImpl
+   * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getSection()
+   * @generated
+   */
+  int SECTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION__TITLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION__CONTENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Section</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl <em>Contact Us Page</em>}' class.
@@ -259,7 +314,7 @@ public interface GenerateMePackage extends EPackage
    * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getContactUsPage()
    * @generated
    */
-  int CONTACT_US_PAGE = 5;
+  int CONTACT_US_PAGE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -271,13 +326,13 @@ public interface GenerateMePackage extends EPackage
   int CONTACT_US_PAGE__NAME = PAGES__NAME;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * The feature id for the '<em><b>Header</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTACT_US_PAGE__CONTENT = PAGES_FEATURE_COUNT + 0;
+  int CONTACT_US_PAGE__HEADER = PAGES_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Contact Us Page</em>' class.
@@ -296,7 +351,7 @@ public interface GenerateMePackage extends EPackage
    * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getGalleryPage()
    * @generated
    */
-  int GALLERY_PAGE = 6;
+  int GALLERY_PAGE = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -333,16 +388,16 @@ public interface GenerateMePackage extends EPackage
    * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getPhoto()
    * @generated
    */
-  int PHOTO = 7;
+  int PHOTO = 8;
 
   /**
-   * The feature id for the '<em><b>Photo Title</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PHOTO__PHOTO_TITLE = 0;
+  int PHOTO__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -522,15 +577,69 @@ public interface GenerateMePackage extends EPackage
   EClass getContentPage();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContentPage#getContent <em>Content</em>}'.
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContentPage#getHeader <em>Header</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content</em>'.
-   * @see uk.juliusz.generateme.generateMe.ContentPage#getContent()
+   * @return the meta object for the attribute '<em>Header</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContentPage#getHeader()
    * @see #getContentPage()
    * @generated
    */
-  EAttribute getContentPage_Content();
+  EAttribute getContentPage_Header();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link uk.juliusz.generateme.generateMe.ContentPage#getSection <em>Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Section</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContentPage#getSection()
+   * @see #getContentPage()
+   * @generated
+   */
+  EReference getContentPage_Section();
+
+  /**
+   * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.Section <em>Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Section</em>'.
+   * @see uk.juliusz.generateme.generateMe.Section
+   * @generated
+   */
+  EClass getSection();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Section#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see uk.juliusz.generateme.generateMe.Section#getName()
+   * @see #getSection()
+   * @generated
+   */
+  EAttribute getSection_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Section#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see uk.juliusz.generateme.generateMe.Section#getTitle()
+   * @see #getSection()
+   * @generated
+   */
+  EAttribute getSection_Title();
+
+  /**
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Section#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see uk.juliusz.generateme.generateMe.Section#getContent()
+   * @see #getSection()
+   * @generated
+   */
+  EAttribute getSection_Content();
 
   /**
    * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.ContactUsPage <em>Contact Us Page</em>}'.
@@ -543,15 +652,15 @@ public interface GenerateMePackage extends EPackage
   EClass getContactUsPage();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactUsPage#getContent <em>Content</em>}'.
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.ContactUsPage#getHeader <em>Header</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content</em>'.
-   * @see uk.juliusz.generateme.generateMe.ContactUsPage#getContent()
+   * @return the meta object for the attribute '<em>Header</em>'.
+   * @see uk.juliusz.generateme.generateMe.ContactUsPage#getHeader()
    * @see #getContactUsPage()
    * @generated
    */
-  EAttribute getContactUsPage_Content();
+  EAttribute getContactUsPage_Header();
 
   /**
    * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.GalleryPage <em>Gallery Page</em>}'.
@@ -585,15 +694,15 @@ public interface GenerateMePackage extends EPackage
   EClass getPhoto();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Photo#getPhotoTitle <em>Photo Title</em>}'.
+   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Photo#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Photo Title</em>'.
-   * @see uk.juliusz.generateme.generateMe.Photo#getPhotoTitle()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see uk.juliusz.generateme.generateMe.Photo#getName()
    * @see #getPhoto()
    * @generated
    */
-  EAttribute getPhoto_PhotoTitle();
+  EAttribute getPhoto_Name();
 
   /**
    * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Photo#getDescription <em>Description</em>}'.
@@ -763,12 +872,54 @@ public interface GenerateMePackage extends EPackage
     EClass CONTENT_PAGE = eINSTANCE.getContentPage();
 
     /**
+     * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTENT_PAGE__HEADER = eINSTANCE.getContentPage_Header();
+
+    /**
+     * The meta object literal for the '<em><b>Section</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTENT_PAGE__SECTION = eINSTANCE.getContentPage_Section();
+
+    /**
+     * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.SectionImpl <em>Section</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see uk.juliusz.generateme.generateMe.impl.SectionImpl
+     * @see uk.juliusz.generateme.generateMe.impl.GenerateMePackageImpl#getSection()
+     * @generated
+     */
+    EClass SECTION = eINSTANCE.getSection();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECTION__NAME = eINSTANCE.getSection_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECTION__TITLE = eINSTANCE.getSection_Title();
+
+    /**
      * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTENT_PAGE__CONTENT = eINSTANCE.getContentPage_Content();
+    EAttribute SECTION__CONTENT = eINSTANCE.getSection_Content();
 
     /**
      * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl <em>Contact Us Page</em>}' class.
@@ -781,12 +932,12 @@ public interface GenerateMePackage extends EPackage
     EClass CONTACT_US_PAGE = eINSTANCE.getContactUsPage();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Header</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONTACT_US_PAGE__CONTENT = eINSTANCE.getContactUsPage_Content();
+    EAttribute CONTACT_US_PAGE__HEADER = eINSTANCE.getContactUsPage_Header();
 
     /**
      * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.GalleryPageImpl <em>Gallery Page</em>}' class.
@@ -817,12 +968,12 @@ public interface GenerateMePackage extends EPackage
     EClass PHOTO = eINSTANCE.getPhoto();
 
     /**
-     * The meta object literal for the '<em><b>Photo Title</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PHOTO__PHOTO_TITLE = eINSTANCE.getPhoto_PhotoTitle();
+    EAttribute PHOTO__NAME = eINSTANCE.getPhoto_Name();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

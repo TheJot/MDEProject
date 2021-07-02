@@ -69,6 +69,15 @@ public interface GenerateMeFactory extends EFactory
   ContentPage createContentPage();
 
   /**
+   * Returns a new object of class '<em>Section</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Section</em>'.
+   * @generated
+   */
+  Section createSection();
+
+  /**
    * Returns a new object of class '<em>Contact Us Page</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

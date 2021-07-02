@@ -3,14 +3,24 @@
  */
 package uk.juliusz.generateme.generateMe.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import uk.juliusz.generateme.generateMe.ContentPage;
 import uk.juliusz.generateme.generateMe.GenerateMePackage;
+import uk.juliusz.generateme.generateMe.Section;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +30,8 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.ContentPageImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.ContentPageImpl#getHeader <em>Header</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.ContentPageImpl#getSection <em>Section</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +39,34 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
 public class ContentPageImpl extends PagesImpl implements ContentPage
 {
   /**
-   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * The default value of the '{@link #getHeader() <em>Header</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getHeader()
    * @generated
    * @ordered
    */
-  protected static final String CONTENT_EDEFAULT = null;
+  protected static final String HEADER_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * The cached value of the '{@link #getHeader() <em>Header</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getHeader()
    * @generated
    * @ordered
    */
-  protected String content = CONTENT_EDEFAULT;
+  protected String header = HEADER_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSection() <em>Section</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSection()
+   * @generated
+   * @ordered
+   */
+  protected EList<Section> section;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +95,9 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
    * @generated
    */
   @Override
-  public String getContent()
+  public String getHeader()
   {
-    return content;
+    return header;
   }
 
   /**
@@ -85,12 +106,43 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
    * @generated
    */
   @Override
-  public void setContent(String newContent)
+  public void setHeader(String newHeader)
   {
-    String oldContent = content;
-    content = newContent;
+    String oldHeader = header;
+    header = newHeader;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.CONTENT_PAGE__CONTENT, oldContent, content));
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.CONTENT_PAGE__HEADER, oldHeader, header));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Section> getSection()
+  {
+    if (section == null)
+    {
+      section = new EObjectContainmentEList<Section>(Section.class, this, GenerateMePackage.CONTENT_PAGE__SECTION);
+    }
+    return section;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GenerateMePackage.CONTENT_PAGE__SECTION:
+        return ((InternalEList<?>)getSection()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -103,8 +155,10 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTENT_PAGE__CONTENT:
-        return getContent();
+      case GenerateMePackage.CONTENT_PAGE__HEADER:
+        return getHeader();
+      case GenerateMePackage.CONTENT_PAGE__SECTION:
+        return getSection();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -114,13 +168,18 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTENT_PAGE__CONTENT:
-        setContent((String)newValue);
+      case GenerateMePackage.CONTENT_PAGE__HEADER:
+        setHeader((String)newValue);
+        return;
+      case GenerateMePackage.CONTENT_PAGE__SECTION:
+        getSection().clear();
+        getSection().addAll((Collection<? extends Section>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +195,11 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTENT_PAGE__CONTENT:
-        setContent(CONTENT_EDEFAULT);
+      case GenerateMePackage.CONTENT_PAGE__HEADER:
+        setHeader(HEADER_EDEFAULT);
+        return;
+      case GenerateMePackage.CONTENT_PAGE__SECTION:
+        getSection().clear();
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +215,10 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTENT_PAGE__CONTENT:
-        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case GenerateMePackage.CONTENT_PAGE__HEADER:
+        return HEADER_EDEFAULT == null ? header != null : !HEADER_EDEFAULT.equals(header);
+      case GenerateMePackage.CONTENT_PAGE__SECTION:
+        return section != null && !section.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +234,8 @@ public class ContentPageImpl extends PagesImpl implements ContentPage
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (content: ");
-    result.append(content);
+    result.append(" (header: ");
+    result.append(header);
     result.append(')');
     return result.toString();
   }

@@ -36,25 +36,33 @@ Pages:
 ContentPage:
 	
 	'ContentPage' name=ID '{'
-		'PageHeader' content=STRING
+		'PageHeader' header=STRING
+		 section+=Section*	
+	'}'
+;
+
+Section:	
+		'Section' name=ID '{'
+		'Title' title=STRING
+		'Content' content=STRING
 	'}'
 ;
 
 ContactUsPage:
 	'ContactUsPage' name=ID '{'
-		'PageHeader' content=STRING
+		'PageHeader' header=STRING
 	'}'
 ;
 
 
 GalleryPage:
 	'GalleryPage' name=ID '{'
-		photos+=Photo		
+		photos+=Photo*		
 	'}'
 ;
 
 Photo:	
-	'Photo' photoTitle=STRING '{'
+	'Photo' name=ID '{'
 		'PhotoDescription' description=STRING
 		'PhotoFileName' fileName=STRING
 	'}'

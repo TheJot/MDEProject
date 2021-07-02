@@ -11,24 +11,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import uk.juliusz.generateme.generateMe.GenerateMePackage;
-import uk.juliusz.generateme.generateMe.Photo;
+import uk.juliusz.generateme.generateMe.Section;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Photo</b></em>'.
+ * An implementation of the model object '<em><b>Section</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.PhotoImpl#getName <em>Name</em>}</li>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.PhotoImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.PhotoImpl#getFileName <em>File Name</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.SectionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.SectionImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.SectionImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
+public class SectionImpl extends MinimalEObjectImpl.Container implements Section
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -51,51 +51,51 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getTitle()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected static final String TITLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getTitle()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
+  protected String title = TITLE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFileName()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected static final String FILE_NAME_EDEFAULT = null;
+  protected static final String CONTENT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFileName()
+   * @see #getContent()
    * @generated
    * @ordered
    */
-  protected String fileName = FILE_NAME_EDEFAULT;
+  protected String content = CONTENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PhotoImpl()
+  protected SectionImpl()
   {
     super();
   }
@@ -108,7 +108,7 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   @Override
   protected EClass eStaticClass()
   {
-    return GenerateMePackage.Literals.PHOTO;
+    return GenerateMePackage.Literals.SECTION;
   }
 
   /**
@@ -133,7 +133,7 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.PHOTO__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.SECTION__NAME, oldName, name));
   }
 
   /**
@@ -142,9 +142,9 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
    * @generated
    */
   @Override
-  public String getDescription()
+  public String getTitle()
   {
-    return description;
+    return title;
   }
 
   /**
@@ -153,12 +153,12 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
    * @generated
    */
   @Override
-  public void setDescription(String newDescription)
+  public void setTitle(String newTitle)
   {
-    String oldDescription = description;
-    description = newDescription;
+    String oldTitle = title;
+    title = newTitle;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.PHOTO__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.SECTION__TITLE, oldTitle, title));
   }
 
   /**
@@ -167,9 +167,9 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
    * @generated
    */
   @Override
-  public String getFileName()
+  public String getContent()
   {
-    return fileName;
+    return content;
   }
 
   /**
@@ -178,12 +178,12 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
    * @generated
    */
   @Override
-  public void setFileName(String newFileName)
+  public void setContent(String newContent)
   {
-    String oldFileName = fileName;
-    fileName = newFileName;
+    String oldContent = content;
+    content = newContent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.PHOTO__FILE_NAME, oldFileName, fileName));
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.SECTION__CONTENT, oldContent, content));
   }
 
   /**
@@ -196,12 +196,12 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   {
     switch (featureID)
     {
-      case GenerateMePackage.PHOTO__NAME:
+      case GenerateMePackage.SECTION__NAME:
         return getName();
-      case GenerateMePackage.PHOTO__DESCRIPTION:
-        return getDescription();
-      case GenerateMePackage.PHOTO__FILE_NAME:
-        return getFileName();
+      case GenerateMePackage.SECTION__TITLE:
+        return getTitle();
+      case GenerateMePackage.SECTION__CONTENT:
+        return getContent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,14 +216,14 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   {
     switch (featureID)
     {
-      case GenerateMePackage.PHOTO__NAME:
+      case GenerateMePackage.SECTION__NAME:
         setName((String)newValue);
         return;
-      case GenerateMePackage.PHOTO__DESCRIPTION:
-        setDescription((String)newValue);
+      case GenerateMePackage.SECTION__TITLE:
+        setTitle((String)newValue);
         return;
-      case GenerateMePackage.PHOTO__FILE_NAME:
-        setFileName((String)newValue);
+      case GenerateMePackage.SECTION__CONTENT:
+        setContent((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,14 +239,14 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   {
     switch (featureID)
     {
-      case GenerateMePackage.PHOTO__NAME:
+      case GenerateMePackage.SECTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case GenerateMePackage.PHOTO__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case GenerateMePackage.SECTION__TITLE:
+        setTitle(TITLE_EDEFAULT);
         return;
-      case GenerateMePackage.PHOTO__FILE_NAME:
-        setFileName(FILE_NAME_EDEFAULT);
+      case GenerateMePackage.SECTION__CONTENT:
+        setContent(CONTENT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -262,12 +262,12 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
   {
     switch (featureID)
     {
-      case GenerateMePackage.PHOTO__NAME:
+      case GenerateMePackage.SECTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GenerateMePackage.PHOTO__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case GenerateMePackage.PHOTO__FILE_NAME:
-        return FILE_NAME_EDEFAULT == null ? fileName != null : !FILE_NAME_EDEFAULT.equals(fileName);
+      case GenerateMePackage.SECTION__TITLE:
+        return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+      case GenerateMePackage.SECTION__CONTENT:
+        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
     }
     return super.eIsSet(featureID);
   }
@@ -285,12 +285,12 @@ public class PhotoImpl extends MinimalEObjectImpl.Container implements Photo
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", description: ");
-    result.append(description);
-    result.append(", fileName: ");
-    result.append(fileName);
+    result.append(", title: ");
+    result.append(title);
+    result.append(", content: ");
+    result.append(content);
     result.append(')');
     return result.toString();
   }
 
-} //PhotoImpl
+} //SectionImpl

@@ -22,6 +22,7 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
 import uk.juliusz.generateme.generateMe.GenerateMeProgram;
 import uk.juliusz.generateme.generateMe.HomePage;
 import uk.juliusz.generateme.generateMe.Photo;
+import uk.juliusz.generateme.generateMe.Section;
 import uk.juliusz.generateme.services.GenerateMeGrammarAccess;
 
 @SuppressWarnings("all")
@@ -59,6 +60,9 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case GenerateMePackage.PHOTO:
 				sequence_Photo(context, (Photo) semanticObject); 
 				return; 
+			case GenerateMePackage.SECTION:
+				sequence_Section(context, (Section) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -94,18 +98,18 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ContactUsPage returns ContactUsPage
 	 *
 	 * Constraint:
-	 *     (name=ID content=STRING)
+	 *     (name=ID header=STRING)
 	 */
 	protected void sequence_ContactUsPage(ISerializationContext context, ContactUsPage semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PAGES__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PAGES__NAME));
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__CONTENT));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__HEADER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTACT_US_PAGE__HEADER));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getContactUsPageAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getContactUsPageAccess().getContentSTRINGTerminalRuleCall_4_0(), semanticObject.getContent());
+		feeder.accept(grammarAccess.getContactUsPageAccess().getHeaderSTRINGTerminalRuleCall_4_0(), semanticObject.getHeader());
 		feeder.finish();
 	}
 	
@@ -116,19 +120,10 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ContentPage returns ContentPage
 	 *
 	 * Constraint:
-	 *     (name=ID content=STRING)
+	 *     (name=ID header=STRING section+=Section*)
 	 */
 	protected void sequence_ContentPage(ISerializationContext context, ContentPage semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PAGES__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PAGES__NAME));
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONTENT_PAGE__CONTENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONTENT_PAGE__CONTENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getContentPageAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getContentPageAccess().getContentSTRINGTerminalRuleCall_4_0(), semanticObject.getContent());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -138,7 +133,7 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     GalleryPage returns GalleryPage
 	 *
 	 * Constraint:
-	 *     (name=ID photos+=Photo)
+	 *     (name=ID photos+=Photo*)
 	 */
 	protected void sequence_GalleryPage(ISerializationContext context, GalleryPage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -183,21 +178,45 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Photo returns Photo
 	 *
 	 * Constraint:
-	 *     (photoTitle=STRING description=STRING fileName=STRING)
+	 *     (name=ID description=STRING fileName=STRING)
 	 */
 	protected void sequence_Photo(ISerializationContext context, Photo semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PHOTO__PHOTO_TITLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PHOTO__PHOTO_TITLE));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PHOTO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PHOTO__NAME));
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PHOTO__DESCRIPTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PHOTO__DESCRIPTION));
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.PHOTO__FILE_NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.PHOTO__FILE_NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPhotoAccess().getPhotoTitleSTRINGTerminalRuleCall_1_0(), semanticObject.getPhotoTitle());
+		feeder.accept(grammarAccess.getPhotoAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getPhotoAccess().getDescriptionSTRINGTerminalRuleCall_4_0(), semanticObject.getDescription());
 		feeder.accept(grammarAccess.getPhotoAccess().getFileNameSTRINGTerminalRuleCall_6_0(), semanticObject.getFileName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Section returns Section
+	 *
+	 * Constraint:
+	 *     (name=ID title=STRING content=STRING)
+	 */
+	protected void sequence_Section(ISerializationContext context, Section semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.SECTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.SECTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.SECTION__TITLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.SECTION__TITLE));
+			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.SECTION__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.SECTION__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSectionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSectionAccess().getTitleSTRINGTerminalRuleCall_4_0(), semanticObject.getTitle());
+		feeder.accept(grammarAccess.getSectionAccess().getContentSTRINGTerminalRuleCall_6_0(), semanticObject.getContent());
 		feeder.finish();
 	}
 	

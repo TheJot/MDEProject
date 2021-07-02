@@ -13,7 +13,7 @@ package uk.juliusz.generateme.generateMe;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.ContactUsPage#getContent <em>Content</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.ContactUsPage#getHeader <em>Header</em>}</li>
  * </ul>
  *
  * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getContactUsPage()
@@ -23,25 +23,25 @@ package uk.juliusz.generateme.generateMe;
 public interface ContactUsPage extends Pages
 {
   /**
-   * Returns the value of the '<em><b>Content</b></em>' attribute.
+   * Returns the value of the '<em><b>Header</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Content</em>' attribute.
-   * @see #setContent(String)
-   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getContactUsPage_Content()
+   * @return the value of the '<em>Header</em>' attribute.
+   * @see #setHeader(String)
+   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getContactUsPage_Header()
    * @model
    * @generated
    */
-  String getContent();
+  String getHeader();
 
   /**
-   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.ContactUsPage#getContent <em>Content</em>}' attribute.
+   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.ContactUsPage#getHeader <em>Header</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Content</em>' attribute.
-   * @see #getContent()
+   * @param value the new value of the '<em>Header</em>' attribute.
+   * @see #getHeader()
    * @generated
    */
-  void setContent(String value);
+  void setHeader(String value);
 
 } // ContactUsPage

@@ -20,7 +20,7 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link uk.juliusz.generateme.generateMe.impl.ContactUsPageImpl#getHeader <em>Header</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import uk.juliusz.generateme.generateMe.GenerateMePackage;
 public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
 {
   /**
-   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * The default value of the '{@link #getHeader() <em>Header</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getHeader()
    * @generated
    * @ordered
    */
-  protected static final String CONTENT_EDEFAULT = null;
+  protected static final String HEADER_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * The cached value of the '{@link #getHeader() <em>Header</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getHeader()
    * @generated
    * @ordered
    */
-  protected String content = CONTENT_EDEFAULT;
+  protected String header = HEADER_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
    * @generated
    */
   @Override
-  public String getContent()
+  public String getHeader()
   {
-    return content;
+    return header;
   }
 
   /**
@@ -85,12 +85,12 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
    * @generated
    */
   @Override
-  public void setContent(String newContent)
+  public void setHeader(String newHeader)
   {
-    String oldContent = content;
-    content = newContent;
+    String oldHeader = header;
+    header = newHeader;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.CONTACT_US_PAGE__CONTENT, oldContent, content));
+      eNotify(new ENotificationImpl(this, Notification.SET, GenerateMePackage.CONTACT_US_PAGE__HEADER, oldHeader, header));
   }
 
   /**
@@ -103,8 +103,8 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTACT_US_PAGE__CONTENT:
-        return getContent();
+      case GenerateMePackage.CONTACT_US_PAGE__HEADER:
+        return getHeader();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTACT_US_PAGE__CONTENT:
-        setContent((String)newValue);
+      case GenerateMePackage.CONTACT_US_PAGE__HEADER:
+        setHeader((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTACT_US_PAGE__CONTENT:
-        setContent(CONTENT_EDEFAULT);
+      case GenerateMePackage.CONTACT_US_PAGE__HEADER:
+        setHeader(HEADER_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
   {
     switch (featureID)
     {
-      case GenerateMePackage.CONTACT_US_PAGE__CONTENT:
-        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case GenerateMePackage.CONTACT_US_PAGE__HEADER:
+        return HEADER_EDEFAULT == null ? header != null : !HEADER_EDEFAULT.equals(header);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +170,8 @@ public class ContactUsPageImpl extends PagesImpl implements ContactUsPage
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (content: ");
-    result.append(content);
+    result.append(" (header: ");
+    result.append(header);
     result.append(')');
     return result.toString();
   }

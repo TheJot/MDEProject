@@ -385,9 +385,9 @@ ruleContentPage returns [EObject current=null]
 		}
 		(
 			(
-				lv_content_4_0=RULE_STRING
+				lv_header_4_0=RULE_STRING
 				{
-					newLeafNode(lv_content_4_0, grammarAccess.getContentPageAccess().getContentSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_header_4_0, grammarAccess.getContentPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -395,15 +395,127 @@ ruleContentPage returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"content",
-						lv_content_4_0,
+						"header",
+						lv_header_4_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)
-		otherlv_5='}'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getContentPageAccess().getSectionSectionParserRuleCall_5_0());
+				}
+				lv_section_5_0=ruleSection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getContentPageRule());
+					}
+					add(
+						$current,
+						"section",
+						lv_section_5_0,
+						"uk.juliusz.generateme.GenerateMe.Section");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_6='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getContentPageAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getContentPageAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
+// Entry rule entryRuleSection
+entryRuleSection returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSectionRule()); }
+	iv_ruleSection=ruleSection
+	{ $current=$iv_ruleSection.current; }
+	EOF;
+
+// Rule Section
+ruleSection returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Section'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSectionAccess().getSectionKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getSectionAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSectionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getSectionAccess().getLeftCurlyBracketKeyword_2());
+		}
+		otherlv_3='Title'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getSectionAccess().getTitleKeyword_3());
+		}
+		(
+			(
+				lv_title_4_0=RULE_STRING
+				{
+					newLeafNode(lv_title_4_0, grammarAccess.getSectionAccess().getTitleSTRINGTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSectionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"title",
+						lv_title_4_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_5='Content'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getSectionAccess().getContentKeyword_5());
+		}
+		(
+			(
+				lv_content_6_0=RULE_STRING
+				{
+					newLeafNode(lv_content_6_0, grammarAccess.getSectionAccess().getContentSTRINGTerminalRuleCall_6_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSectionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_6_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_7='}'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getSectionAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -456,9 +568,9 @@ ruleContactUsPage returns [EObject current=null]
 		}
 		(
 			(
-				lv_content_4_0=RULE_STRING
+				lv_header_4_0=RULE_STRING
 				{
-					newLeafNode(lv_content_4_0, grammarAccess.getContactUsPageAccess().getContentSTRINGTerminalRuleCall_4_0());
+					newLeafNode(lv_header_4_0, grammarAccess.getContactUsPageAccess().getHeaderSTRINGTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
@@ -466,8 +578,8 @@ ruleContactUsPage returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"content",
-						lv_content_4_0,
+						"header",
+						lv_header_4_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
@@ -539,7 +651,7 @@ ruleGalleryPage returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)*
 		otherlv_4='}'
 		{
 			newLeafNode(otherlv_4, grammarAccess.getGalleryPageAccess().getRightCurlyBracketKeyword_4());
@@ -569,9 +681,9 @@ rulePhoto returns [EObject current=null]
 		}
 		(
 			(
-				lv_photoTitle_1_0=RULE_STRING
+				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_photoTitle_1_0, grammarAccess.getPhotoAccess().getPhotoTitleSTRINGTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getPhotoAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -579,9 +691,9 @@ rulePhoto returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"photoTitle",
-						lv_photoTitle_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
