@@ -13,8 +13,6 @@ GenerateMeProgram:
 
 Config:
 	'BusinessName' businessName=STRING
-	'Sender' sender=STRING
-	'Author' author=STRING
 ;
 
 

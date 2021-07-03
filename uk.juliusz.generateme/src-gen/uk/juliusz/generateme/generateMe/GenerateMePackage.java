@@ -123,31 +123,13 @@ public interface GenerateMePackage extends EPackage
   int CONFIG__BUSINESS_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Sender</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONFIG__SENDER = 1;
-
-  /**
-   * The feature id for the '<em><b>Author</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONFIG__AUTHOR = 2;
-
-  /**
    * The number of structural features of the '<em>Config</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONFIG_FEATURE_COUNT = 3;
+  int CONFIG_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link uk.juliusz.generateme.generateMe.impl.HomePageImpl <em>Home Page</em>}' class.
@@ -510,28 +492,6 @@ public interface GenerateMePackage extends EPackage
   EAttribute getConfig_BusinessName();
 
   /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Config#getSender <em>Sender</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Sender</em>'.
-   * @see uk.juliusz.generateme.generateMe.Config#getSender()
-   * @see #getConfig()
-   * @generated
-   */
-  EAttribute getConfig_Sender();
-
-  /**
-   * Returns the meta object for the attribute '{@link uk.juliusz.generateme.generateMe.Config#getAuthor <em>Author</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Author</em>'.
-   * @see uk.juliusz.generateme.generateMe.Config#getAuthor()
-   * @see #getConfig()
-   * @generated
-   */
-  EAttribute getConfig_Author();
-
-  /**
    * Returns the meta object for class '{@link uk.juliusz.generateme.generateMe.HomePage <em>Home Page</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -840,22 +800,6 @@ public interface GenerateMePackage extends EPackage
      * @generated
      */
     EAttribute CONFIG__BUSINESS_NAME = eINSTANCE.getConfig_BusinessName();
-
-    /**
-     * The meta object literal for the '<em><b>Sender</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONFIG__SENDER = eINSTANCE.getConfig_Sender();
-
-    /**
-     * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONFIG__AUTHOR = eINSTANCE.getConfig_Author();
 
     /**
      * The meta object literal for the '{@link uk.juliusz.generateme.generateMe.impl.HomePageImpl <em>Home Page</em>}' class.

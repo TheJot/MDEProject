@@ -174,50 +174,6 @@ ruleConfig returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='Sender'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getConfigAccess().getSenderKeyword_2());
-		}
-		(
-			(
-				lv_sender_3_0=RULE_STRING
-				{
-					newLeafNode(lv_sender_3_0, grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConfigRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"sender",
-						lv_sender_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
-		otherlv_4='Author'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getConfigAccess().getAuthorKeyword_4());
-		}
-		(
-			(
-				lv_author_5_0=RULE_STRING
-				{
-					newLeafNode(lv_author_5_0, grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConfigRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"author",
-						lv_author_5_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
-			)
-		)
 	)
 ;
 

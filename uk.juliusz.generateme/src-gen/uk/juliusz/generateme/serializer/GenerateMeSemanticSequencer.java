@@ -73,21 +73,15 @@ public class GenerateMeSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Config returns Config
 	 *
 	 * Constraint:
-	 *     (businessName=STRING sender=STRING author=STRING)
+	 *     businessName=STRING
 	 */
 	protected void sequence_Config(ISerializationContext context, Config semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__BUSINESS_NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__BUSINESS_NAME));
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__SENDER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__SENDER));
-			if (transientValues.isValueTransient(semanticObject, GenerateMePackage.Literals.CONFIG__AUTHOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GenerateMePackage.Literals.CONFIG__AUTHOR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getConfigAccess().getBusinessNameSTRINGTerminalRuleCall_1_0(), semanticObject.getBusinessName());
-		feeder.accept(grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0(), semanticObject.getSender());
-		feeder.accept(grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0(), semanticObject.getAuthor());
 		feeder.finish();
 	}
 	

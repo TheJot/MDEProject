@@ -15,8 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link uk.juliusz.generateme.generateMe.Config#getBusinessName <em>Business Name</em>}</li>
- *   <li>{@link uk.juliusz.generateme.generateMe.Config#getSender <em>Sender</em>}</li>
- *   <li>{@link uk.juliusz.generateme.generateMe.Config#getAuthor <em>Author</em>}</li>
  * </ul>
  *
  * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getConfig()
@@ -46,49 +44,5 @@ public interface Config extends EObject
    * @generated
    */
   void setBusinessName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Sender</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sender</em>' attribute.
-   * @see #setSender(String)
-   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getConfig_Sender()
-   * @model
-   * @generated
-   */
-  String getSender();
-
-  /**
-   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.Config#getSender <em>Sender</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sender</em>' attribute.
-   * @see #getSender()
-   * @generated
-   */
-  void setSender(String value);
-
-  /**
-   * Returns the value of the '<em><b>Author</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Author</em>' attribute.
-   * @see #setAuthor(String)
-   * @see uk.juliusz.generateme.generateMe.GenerateMePackage#getConfig_Author()
-   * @model
-   * @generated
-   */
-  String getAuthor();
-
-  /**
-   * Sets the value of the '{@link uk.juliusz.generateme.generateMe.Config#getAuthor <em>Author</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Author</em>' attribute.
-   * @see #getAuthor()
-   * @generated
-   */
-  void setAuthor(String value);
 
 } // Config

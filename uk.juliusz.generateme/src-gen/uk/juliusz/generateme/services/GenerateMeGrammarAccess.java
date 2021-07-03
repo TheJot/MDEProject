@@ -65,20 +65,12 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBusinessNameKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cBusinessNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBusinessNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cBusinessNameAssignment_1.eContents().get(0);
-		private final Keyword cSenderKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSenderAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSenderSTRINGTerminalRuleCall_3_0 = (RuleCall)cSenderAssignment_3.eContents().get(0);
-		private final Keyword cAuthorKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cAuthorAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAuthorSTRINGTerminalRuleCall_5_0 = (RuleCall)cAuthorAssignment_5.eContents().get(0);
 		
 		//Config:
-		//	'BusinessName' businessName=STRING
-		//	'Sender' sender=STRING
-		//	'Author' author=STRING;
+		//	'BusinessName' businessName=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BusinessName' businessName=STRING 'Sender' sender=STRING 'Author' author=STRING
+		//'BusinessName' businessName=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'BusinessName'
@@ -89,24 +81,6 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//STRING
 		public RuleCall getBusinessNameSTRINGTerminalRuleCall_1_0() { return cBusinessNameSTRINGTerminalRuleCall_1_0; }
-		
-		//'Sender'
-		public Keyword getSenderKeyword_2() { return cSenderKeyword_2; }
-		
-		//sender=STRING
-		public Assignment getSenderAssignment_3() { return cSenderAssignment_3; }
-		
-		//STRING
-		public RuleCall getSenderSTRINGTerminalRuleCall_3_0() { return cSenderSTRINGTerminalRuleCall_3_0; }
-		
-		//'Author'
-		public Keyword getAuthorKeyword_4() { return cAuthorKeyword_4; }
-		
-		//author=STRING
-		public Assignment getAuthorAssignment_5() { return cAuthorAssignment_5; }
-		
-		//STRING
-		public RuleCall getAuthorSTRINGTerminalRuleCall_5_0() { return cAuthorSTRINGTerminalRuleCall_5_0; }
 	}
 	public class HomePageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "uk.juliusz.generateme.GenerateMe.HomePage");
@@ -531,9 +505,7 @@ public class GenerateMeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Config:
-	//	'BusinessName' businessName=STRING
-	//	'Sender' sender=STRING
-	//	'Author' author=STRING;
+	//	'BusinessName' businessName=STRING;
 	public ConfigElements getConfigAccess() {
 		return pConfig;
 	}

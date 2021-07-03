@@ -415,7 +415,6 @@ rule__Config__Group__1
 	}
 :
 	rule__Config__Group__1__Impl
-	rule__Config__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -430,113 +429,6 @@ rule__Config__Group__1__Impl
 	{ before(grammarAccess.getConfigAccess().getBusinessNameAssignment_1()); }
 	(rule__Config__BusinessNameAssignment_1)
 	{ after(grammarAccess.getConfigAccess().getBusinessNameAssignment_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__2
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Config__Group__2__Impl
-	rule__Config__Group__3
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__2__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigAccess().getSenderKeyword_2()); }
-	'Sender'
-	{ after(grammarAccess.getConfigAccess().getSenderKeyword_2()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Config__Group__3__Impl
-	rule__Config__Group__4
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__3__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigAccess().getSenderAssignment_3()); }
-	(rule__Config__SenderAssignment_3)
-	{ after(grammarAccess.getConfigAccess().getSenderAssignment_3()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__4
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Config__Group__4__Impl
-	rule__Config__Group__5
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__4__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigAccess().getAuthorKeyword_4()); }
-	'Author'
-	{ after(grammarAccess.getConfigAccess().getAuthorKeyword_4()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__5
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__Config__Group__5__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__Group__5__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getConfigAccess().getAuthorAssignment_5()); }
-	(rule__Config__AuthorAssignment_5)
-	{ after(grammarAccess.getConfigAccess().getAuthorAssignment_5()); }
 )
 ;
 finally {
@@ -1786,36 +1678,6 @@ rule__Config__BusinessNameAssignment_1
 		{ before(grammarAccess.getConfigAccess().getBusinessNameSTRINGTerminalRuleCall_1_0()); }
 		RULE_STRING
 		{ after(grammarAccess.getConfigAccess().getBusinessNameSTRINGTerminalRuleCall_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__SenderAssignment_3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getConfigAccess().getSenderSTRINGTerminalRuleCall_3_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Config__AuthorAssignment_5
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getConfigAccess().getAuthorSTRINGTerminalRuleCall_5_0()); }
 	)
 ;
 finally {

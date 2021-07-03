@@ -228,28 +228,6 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
    * @generated
    */
   @Override
-  public EAttribute getConfig_Sender()
-  {
-    return (EAttribute)configEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getConfig_Author()
-  {
-    return (EAttribute)configEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getHomePage()
   {
     return homePageEClass;
@@ -524,8 +502,6 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
 
     configEClass = createEClass(CONFIG);
     createEAttribute(configEClass, CONFIG__BUSINESS_NAME);
-    createEAttribute(configEClass, CONFIG__SENDER);
-    createEAttribute(configEClass, CONFIG__AUTHOR);
 
     homePageEClass = createEClass(HOME_PAGE);
     createEAttribute(homePageEClass, HOME_PAGE__CONTENT);
@@ -598,8 +574,6 @@ public class GenerateMePackageImpl extends EPackageImpl implements GenerateMePac
 
     initEClass(configEClass, Config.class, "Config", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConfig_BusinessName(), ecorePackage.getEString(), "businessName", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConfig_Sender(), ecorePackage.getEString(), "sender", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConfig_Author(), ecorePackage.getEString(), "author", null, 0, 1, Config.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(homePageEClass, HomePage.class, "HomePage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHomePage_Content(), ecorePackage.getEString(), "content", null, 0, 1, HomePage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

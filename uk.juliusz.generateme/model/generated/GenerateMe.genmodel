@@ -13,8 +13,6 @@
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//Config">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/businessName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/sender"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//Config/author"/>
     </genClasses>
     <genClasses ecoreClass="GenerateMe.ecore#//HomePage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GenerateMe.ecore#//HomePage/content"/>
