@@ -205,7 +205,7 @@ include('header.php');
 	'''
 	
 	dispatch def String generateObject(Pages page) '''<li><a href="«page.getName.toLowerCase».php">«page.getName.toFirstUpper»</a></li>'''
-	dispatch def String generateObject(GalleryPage gallerypage) '''<li><a href="«gallerypage.getName».php">«gallerypage.getName.toFirstUpper»</a></li>'''
+	dispatch def String generateObject(GalleryPage gallerypage) '''<li><a href="«gallerypage.getName.toLowerCase».php">«gallerypage.getName.toFirstUpper»</a></li>'''
 	dispatch def String generateObject(Photo photo) '''<b>«photo.getName»</b><br><img src="images/«photo.fileName»" alt="«photo.getName»" width="500" height="600"><br><i> «photo.description»</i><br><br><br>'''
 	dispatch def String generateObject(Section section) '''<h2>«section.title»</h2><h4>«section.content»</h4><br><br><br>'''
 	
@@ -236,13 +236,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // prepare email body text
     $Body = "";
-    $Body .= "Name: ";
+    $Body .= "New message from : ";
     $Body .= $Name;
     $Body .= "\n";
-    $Body .= "Tel: ";
+    $Body .= "Contact no: ";
     $Body .= $Tel;
     $Body .= "\n";
-    $Body .= "Email: ";
+    $Body .= "Email address: ";
     $Body .= $Email;
     $Body .= "\n";
     $Body .= "Message: ";
@@ -254,7 +254,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($send) {
         $success = "Message sent!";
     } else {
-        $error ="Message not sent due to an error, please complete the form again.";
+        $error ="Error sending the e-mail!";
     }
 }
 

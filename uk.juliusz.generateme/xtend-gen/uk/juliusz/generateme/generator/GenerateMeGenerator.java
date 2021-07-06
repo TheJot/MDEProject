@@ -372,8 +372,8 @@ public class GenerateMeGenerator extends AbstractGenerator {
   protected String _generateObject(final GalleryPage gallerypage) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<li><a href=\"");
-    String _name = gallerypage.getName();
-    _builder.append(_name);
+    String _lowerCase = gallerypage.getName().toLowerCase();
+    _builder.append(_lowerCase);
     _builder.append(".php\">");
     String _firstUpper = StringExtensions.toFirstUpper(gallerypage.getName());
     _builder.append(_firstUpper);
@@ -465,7 +465,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("$Body = \"\";");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("$Body .= \"Name: \";");
+    _builder.append("$Body .= \"New message from : \";");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("$Body .= $Name;");
@@ -474,7 +474,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("$Body .= \"\\n\";");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("$Body .= \"Tel: \";");
+    _builder.append("$Body .= \"Contact no: \";");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("$Body .= $Tel;");
@@ -483,7 +483,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("$Body .= \"\\n\";");
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("$Body .= \"Email: \";");
+    _builder.append("$Body .= \"Email address: \";");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("$Body .= $Email;");
@@ -515,7 +515,7 @@ public class GenerateMeGenerator extends AbstractGenerator {
     _builder.append("} else {");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("$error =\"Message not sent due to an error, please complete the form again.\";");
+    _builder.append("$error =\"Error sending the e-mail!\";");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("}");
