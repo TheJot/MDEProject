@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="EditorSelectionDialog">
+		<item key="EditorSelectionDialog.STORE_ID_FILE_EXTENSION" value=".php"/>
+		<item key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL" value="false"/>
+		<item key="EditorSelectionDialog.STORE_ID_DESCR" value="org.eclipse.ui.DefaultTextEditor"/>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.ui.wizards.new.file"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.acceleo.ide.ui"/>
+			<item value="org.eclipse.emf.cdo.category"/>
+			<item value="org.eclipse.epsilon.dt"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.jdt.ui.java/org.eclipse.jdt.debug.ui.java"/>
+			<item value="org.eclipse.pde.PDE"/>
+			<item value="org.eclipse.sirius.category"/>
+			<item value="org.eclipse.pde.userAssistance"/>
+			<item value="org.eclipse.ui.Other"/>
+			<item value="org.eclipse.ui.Examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.epsilon.common.dt.examples"/>
+			<item value="org.eclipse.ui.Examples/org.eclipse.gmf.examples"/>
+		</list>
+	</section>
+</section>

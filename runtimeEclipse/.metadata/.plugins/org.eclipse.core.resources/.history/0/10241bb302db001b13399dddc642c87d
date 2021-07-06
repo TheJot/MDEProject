@@ -1,0 +1,49 @@
+BusinessName 'TestBusiness'
+Sender 'Test'
+Author 'TestAuthor'
+
+HomePage{
+PageHeader 'Welcome to our busines!'
+Introduction 'Test Introductio'
+}
+
+GalleryPage Gallery{
+	Photo Photo1 {
+		PhotoDescription 'tests'
+		PhotoFileName 'test'}
+		}
+		
+ContentPage AboutUs{
+	PageHeader 'About us'
+	}
+	
+ContentPage AboutUs2{
+	PageHeader 'About us'
+	}
+	
+ContactUsPage AboutUs{
+	PageHeader 'About us'
+	}
+
+
+GalleryPage TestGallery{
+	Photo Photo2{
+		PhotoDescription 'Test Photo Description'
+		PhotoFileName 'Test URL Address'
+	}
+}
+
+GalleryPage TestGallery2{
+	Photo Car1{
+		PhotoDescription 'Test Photo Description'
+		PhotoFileName 'Test URL Address'
+	}
+}
+
+GalleryPage TestGallery3{
+	Photo Car1{
+		PhotoDescription 'Test Photo Description'
+		PhotoFileName 'Test URL Address'
+	}
+}
+

@@ -1,0 +1,75 @@
+BusinessName 'TestBusiness'
+Sender 'Test'
+Author 'TestAuthor'
+
+HomePage{
+PageHeader 'Welcome to our busines!'
+Introduction 'Test Introductio'
+}
+
+GalleryPage Gallery{
+	Photo Photo1 {
+		PhotoDescription 'tests'
+		PhotoFileName 'test'}
+		}
+		
+ContentPage AboutUs{
+	PageHeader 'About us'
+	}
+	
+ContentPage AboutUs2{
+	PageHeader 'About us'
+	}
+	
+ContactUsPage AboutUs{
+	PageHeader 'About us'
+	}
+
+
+GalleryPage Food{
+	Photo Sandwich{
+		PhotoDescription 'This is a photo of a sandwich.'
+		PhotoFileName 'sandwich.jpg'
+	}
+	
+	Photo Banana{
+		PhotoDescription 'This is a photo of a banana'
+		PhotoFileName 'banana.jpg'
+	}
+	
+	Photo Coffee{
+		PhotoDescription 'This is a photo of a cup of coffee'
+		PhotoFileName 'coffee.jpg'
+	}
+}
+
+GalleryPage Nature{
+	Photo Flowers{
+		PhotoDescription 'This is a photo of flowers'
+		PhotoFileName 'flowers.jpg'
+	}
+	
+	Photo Forest{
+		PhotoDescription 'This is a photo of a forest.'
+		PhotoFileName 'forest.jpg'
+	}
+	
+	Photo Reindeer{
+		PhotoDescription 'This is a photo of a reindeer (I think, that is not my area of expertise!'
+		PhotoFileName 'animal.jpg'
+	}
+}
+
+GalleryPage Buildings{
+	Photo Building{
+		PhotoDescription 'This is a photo of a building. '
+		PhotoFileName 'building.jpg'
+	}
+	
+	Photo Tower{
+		PhotoDescription 'This is a photo of a tower.'
+		PhotoFileName 'tower.jpg'
+	}
+	
+}
+

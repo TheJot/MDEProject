@@ -1,0 +1,14 @@
+Program contains:
+		-4 galleries
+		-1 home pages
+		- 2 content pages
+		Test Introductio
+		
+		moveGallery
+		<li><a href="AboutUs.php">AboutUs</a></li>
+		<li><a href="AboutUs2.php">AboutUs2</a></li>
+		<li><a href="AboutUs.php">AboutUs</a></li>
+		moveTestGallery
+		moveTestGallery2
+		moveTestGallery3
+

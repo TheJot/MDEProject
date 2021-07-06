@@ -1,0 +1,38 @@
+<?php
+include('header.php');
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h2>Gallery: Buildings</h2></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-8 ">
+            <br>
+            <center>
+		<b>Building</b><br><img src="building.jpg" alt="Building"><br> This is a photo of a building.
+		<b>Tower</b><br><img src="tower.jpg" alt="Tower"><br> This is a photo of a tower.
+            </center>
+
+        </div>
+        <div class="col-sm-2 "></div>
+    </div>
+
+<br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
+
+

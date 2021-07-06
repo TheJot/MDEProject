@@ -1,0 +1,8 @@
+<li><a href="index.php">Home</a></li>
+	<li><a href="aboutus.php">AboutUs</a></li>
+	<li><a href="prices.php">Prices</a></li>
+	<li><a href="Food.php">Food</a></li>
+	<li><a href="Nature.php">Nature</a></li>
+	<li><a href="Buildings.php">Buildings</a></li>
+	<li><a href="contactus.php">ContactUs</a></li>
+

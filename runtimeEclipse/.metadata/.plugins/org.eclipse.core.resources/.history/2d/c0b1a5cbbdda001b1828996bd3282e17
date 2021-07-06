@@ -1,0 +1,43 @@
+
+
+
+
+
+<?php
+include('headersample.php');
+?>
+
+
+<div class="row"><br><br><br><br><br><br><br></div>
+<div class="container">
+
+
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 title"> <center><h2>Welcome to What Do We Do!</h2></center></div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
+    <div class="row" style="display: flex; align-items: center;">
+        <div class="col-sm-2 "></div>
+        <div class="col-sm-8 ">
+            <br>
+            <center> <b>What Do We Do</b> is an online platform designed for making difficult conversations simple.<br>
+                All you need to do in order to start is just creating a debate and inviting your colleagues to take a part in it.<br>
+                Our platform will then determine based on the set of arguments and votes provided by the participants which outcome will be the best.<br><br>
+                All of that is possible thanks to <i>Argumentative Decision Making</i> which in conjunction with a specifically designed for this purpose algorithm can provide an unbaiased and rational answer to the question at hand.
+
+            </center>
+
+        </div>
+        <div class="col-sm-2 "></div>
+    </div>
+
+<br><br><br><br><br><br>
+</div>
+</div>
+</body>
+</html>
