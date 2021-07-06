@@ -23,4 +23,6 @@
 			<item value="org.eclipse.ui.Examples/org.eclipse.gmf.examples"/>
 		</list>
 	</section>
+	<section name="ImportExportAction">
+	</section>
 </section>
