@@ -35,16 +35,6 @@ In case of any compilation errors make sure that the project is set to use **Jav
 ## Deployment of the website
 In order to deploy the website you need to upload content of the _src-gen_ folder including the _images_ folder onto a web server.
 
-For testing purposes the example website has been deployed under the following link: http://mde.juliusz.uk/
-
-You can utilize the hosting provided for your own testing purposes by using _FileZilla_ and logging in with credentials below:
-```
-Host: ftp.server739883.nazwa.pl
-Login: server739883_mde
-Password: MDEM4gic!
-```
-
-
 ## Structure of a website
 ### Initial definitions 
 Each website must consits of at least a _Home Page_ and a declaration of the _Business Name_, as per the example below.
